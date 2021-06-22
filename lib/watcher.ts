@@ -1,5 +1,19 @@
+interface ObserverOptions {
+	root: Element;
+	rootMargin: string;
+	threshold: number;
+}
+
+const defaultObserverOptions: ObserverOptions = {
+	root: document.body,
+	rootMargin: '0px',
+	threshold: 1.0,
+};
+
 export class Watcher {
-	constructor(element) {
+	el: Element;
+
+	constructor(element: string) {
 		this.el = document.querySelector(element);
 	}
 
@@ -7,7 +21,7 @@ export class Watcher {
 		console.log('element:', this.el);
 	}
 
-	scroll(event: string, cb, options = {}) {
+	scroll(event: string, cb, options: ObserverOptions = defaultObserverOptions) {
 		let observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				const ratio = entry.intersectionRatio;
@@ -33,5 +47,11 @@ export class Watcher {
 
 	scrollEnter(cb) {
 		cb(this.el);
+	}
+
+	click(cb) {
+		this.el.addEventListener('click', (event: Event) => {
+			cb(this.el, event);
+		});
 	}
 }

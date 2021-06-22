@@ -14,3 +14,8 @@ test.scroll('enter', () => {
 test.scroll('exit', (el) => {
 	console.log('is exit', el);
 });
+
+test.click((el, e) => {
+	alert('clicked');
+	console.log('clicked', el, e);
+});

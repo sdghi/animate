@@ -1,8 +1,8 @@
-export function screen(breakpoint, cb) {
-	window.addEventListener('resize', (e) => {
-		const currentWidth = e.target.innerWidth;
-		const operator = breakpoint.split(/[0-9]/)[0];
-		const targetWidth = breakpoint.match(/\d+/g);
+export function screen(breakpoint: string, cb) {
+	window.addEventListener('resize', (e: Event) => {
+		const currentWidth: number = e.target.innerWidth;
+		const operator: string = breakpoint.split(/[0-9]/)[0];
+		const targetWidth: number = parseInt(breakpoint.match(/\d+/g)[0]);
 
 		// Render out the correct event based on the operator
 		if (operator === '>=') {
