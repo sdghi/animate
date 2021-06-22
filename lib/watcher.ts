@@ -28,10 +28,10 @@ export class Watcher {
 	}
 
 	scrollExit(cb) {
-		cb();
+		cb(this.el);
 	}
 
 	scrollEnter(cb) {
-		cb();
+		cb(this.el);
 	}
 }

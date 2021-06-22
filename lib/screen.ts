@@ -7,23 +7,23 @@ export function screen(breakpoint, cb) {
 		// Render out the correct event based on the operator
 		if (operator === '>=') {
 			if (targetWidth >= currentWidth) {
-				cb();
+				cb(e);
 			}
 		} else if (operator === '<=') {
 			if (targetWidth <= currentWidth) {
-				cb();
+				cb(e);
 			}
 		} else if (operator === '>') {
 			if (targetWidth > currentWidth) {
-				cb();
+				cb(e);
 			}
 		} else if (operator === '<') {
 			if (targetWidth < currentWidth) {
-				cb();
+				cb(e);
 			}
 		} else if (operator === '=') {
 			if (currentWidth === targetWidth) {
-				cb();
+				cb(e);
 			}
 		}
 	});
