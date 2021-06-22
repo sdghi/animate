@@ -1,0 +1,33 @@
+{
+	"name": "@sdg/animate",
+	"version": "0.0.1",
+	"description": "Animation library used by SDG to build interactive static sites",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/animate.umd.js",
+	"module": "./dist/animate.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/animate.es.js",
+			"require": "./dist/animate.umd.js"
+		}
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "vite docs",
+		"build": "vite build"
+	},
+	"keywords": [
+		"animation",
+		"scroll",
+		"webgl"
+	],
+	"author": "sdghi",
+	"license": "MIT",
+	"devDependencies": {
+		"sass": "^1.35.1",
+		"vite": "^2.3.8",
+		"vite-plugin-live-reload": "^2.1.0"
+	}
+}
