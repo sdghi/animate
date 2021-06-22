@@ -1,5 +1,14 @@
-import { Watcher } from '../../lib';
+import { Watcher, screen } from '../../lib';
 
 const test = new Watcher('.hero__heading');
 
-test.scrollEnter(() => console.log('scroll entered'));
+screen('<=768', () =>
+	test.scroll('enter', () => {
+		console.log('is enter');
+	})
+);
+screen('>768', () =>
+	test.scroll('exit', () => {
+		console.log('is exit');
+	})
+);
