@@ -1,7 +1,7 @@
 interface ObserverOptions {
-	root: Element;
-	rootMargin: string;
-	threshold: number;
+	root?: Element;
+	rootMargin?: string;
+	threshold?: number;
 }
 
 const defaultObserverOptions: ObserverOptions = {

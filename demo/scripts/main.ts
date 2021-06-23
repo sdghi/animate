@@ -6,16 +6,20 @@ const test = new Watcher('.hero__heading');
 screen('<=768', (e) => console.log('above tablet', e));
 screen('>768', () => console.log('below tablet'));
 
-test.scroll('enter', () => {
-	console.log('is enter');
-	flip(
-		'.box',
-		(el) => {
-			el.classList.add('right');
-		},
-		{ duration: 1000 }
-	);
-});
+test.scroll(
+	'enter',
+	() => {
+		console.log('is enter');
+		flip(
+			'.box',
+			(el) => {
+				el.classList.add('right');
+			},
+			{ duration: 1000 }
+		);
+	},
+	{ rootMargin: '-250px' }
+);
 
 // Have access to DOM element of the Watcher
 test.scroll('exit', (el) => {
