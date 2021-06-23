@@ -15,7 +15,7 @@ test.scroll(
 			(el) => {
 				el.classList.add('right');
 			},
-			{ duration: 1000 }
+			{ duration: 400 }
 		);
 	},
 	{ rootMargin: '-250px' }
