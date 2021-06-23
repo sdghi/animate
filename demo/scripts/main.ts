@@ -1,4 +1,4 @@
-import { Watcher, screen } from '../../lib';
+import { Watcher, screen, flip } from '../../lib';
 
 const test = new Watcher('.hero__heading');
 
@@ -8,6 +8,13 @@ screen('>768', () => console.log('below tablet'));
 
 test.scroll('enter', () => {
 	console.log('is enter');
+	flip(
+		'.box',
+		(el) => {
+			el.classList.add('right');
+		},
+		{ duration: 1000, playState: 'reverse' }
+	);
 });
 
 // Have access to DOM element of the Watcher
@@ -16,6 +23,5 @@ test.scroll('exit', (el) => {
 });
 
 test.click((el, e) => {
-	alert('clicked');
 	console.log('clicked', el, e);
 });

@@ -5,7 +5,7 @@ interface ObserverOptions {
 }
 
 const defaultObserverOptions: ObserverOptions = {
-	root: document.body,
+	root: null,
 	rootMargin: '0px',
 	threshold: 1.0,
 };
