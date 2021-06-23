@@ -13,7 +13,7 @@ test.scroll('enter', () => {
 		(el) => {
 			el.classList.add('right');
 		},
-		{ duration: 1000, playState: 'reverse' }
+		{ duration: 1000 }
 	);
 });
 

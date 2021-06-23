@@ -8,7 +8,7 @@
 interface Options {
 	duration?: number;
 	easing?: string;
-	playState?: string;
+	direction?: string;
 }
 
 export function flip(
@@ -17,7 +17,7 @@ export function flip(
 	options: Options = {
 		duration: 300,
 		easing: 'ease-in-out',
-		playState: 'forwards',
+		direction: 'forwards',
 	}
 ) {
 	const el = document.querySelector(element);
@@ -26,8 +26,6 @@ export function flip(
 	cb(el);
 
 	const lastRect = el.getBoundingClientRect();
-
-	console.log(firstRect, lastRect);
 
 	// Deltas
 	const dy = firstRect.top - lastRect.top;
@@ -53,7 +51,7 @@ export function flip(
 		}
 	);
 
-	if (options.playState === 'reverse') {
+	if (options.direction === 'reverse') {
 		animateFlip.reverse();
 	} else {
 		animateFlip.play();
