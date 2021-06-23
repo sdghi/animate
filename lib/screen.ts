@@ -1,3 +1,9 @@
+/**
+ *
+ * @param breakpoint Operator and pixel value of screen width (ex: '>500')
+ * @param cb	Callback function to run if the breakpoint is active
+ */
+
 export function screen(breakpoint: string, cb) {
 	window.addEventListener('resize', (e: Event) => {
 		const currentWidth: number = e.target.innerWidth;
