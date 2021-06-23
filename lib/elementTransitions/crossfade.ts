@@ -12,13 +12,12 @@ export function crossfade(
 	}
 ) {
 	const firstEl = document.querySelector(first);
+	firstEl.style.visibility = 'hidden';
 	const firstRect = firstEl.getBoundingClientRect();
-	first.style.visibility = 'hidden';
-
-	cb();
 
 	const lastEl = document.querySelector(last);
 	const lastRect = lastEl.getBoundingClientRect();
+	cb(lastEl);
 
-	runFLIP(firstRect, lastRect, lastRect, options);
+	runFLIP(firstRect, lastRect, lastEl, options);
 }
