@@ -1,4 +1,4 @@
-import { Watcher, flip, crossfade } from '../../lib';
+import { Watcher, flip, crossfade, animateLayout } from '../../lib';
 
 const textBlockSection = new Watcher('.text-block');
 
@@ -53,4 +53,14 @@ featuredElement.addEventListener('click', () => {
 		},
 		{ duration: 400 }
 	);
+});
+
+const cardsSection = new Watcher('.cards');
+
+cardsSection.scroll('enter', () => {
+	console.log('entered');
+	animateLayout('.cards', '.cards__card', (parent) => {
+		console.log(parent);
+		parent.classList.add('reverse');
+	});
 });

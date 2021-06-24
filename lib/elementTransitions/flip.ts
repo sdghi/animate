@@ -11,11 +11,7 @@ import { FLIPOptions } from '../types';
 export function flip(
 	element: string,
 	cb: CallableFunction,
-	options: FLIPOptions = {
-		duration: 300,
-		easing: 'ease-in-out',
-		direction: 'forwards',
-	}
+	options: FLIPOptions
 ) {
 	const el = document.querySelector(element);
 	const firstRect = el.getBoundingClientRect();

@@ -4,7 +4,11 @@ export function runFLIP(
 	firstRect,
 	lastRect,
 	el: Element,
-	options: FLIPOptions
+	options: FLIPOptions = {
+		duration: 300,
+		easing: 'ease-in-out',
+		direction: 'forwards',
+	}
 ) {
 	// Deltas
 	const dy = firstRect.top - lastRect.top;

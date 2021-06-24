@@ -1,0 +1,13 @@
+.cards {
+	display: flex;
+	padding: 20vh 0;
+
+	&.reverse {
+		display: block;
+	}
+}
+
+.cards__card {
+	padding: 40px;
+	border: 1px solid red;
+}

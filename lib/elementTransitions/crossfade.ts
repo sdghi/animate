@@ -13,11 +13,7 @@ export function crossfade(
 	first: string,
 	last: string,
 	cb: CallableFunction,
-	options: FLIPOptions = {
-		duration: 300,
-		easing: 'ease-in-out',
-		direction: 'forwards',
-	}
+	options: FLIPOptions
 ) {
 	const firstEl: Element = document.querySelector(first);
 	const firstRect = firstEl.getBoundingClientRect();
