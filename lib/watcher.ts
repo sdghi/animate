@@ -42,7 +42,12 @@ export class Watcher {
 			});
 		}, options);
 
-		observer.observe(this.el);
+		const runObserver = () => {
+			observer.observe(this.el);
+			requestAnimationFrame(runObserver);
+		};
+
+		requestAnimationFrame(runObserver);
 	}
 
 	scrollExit(cb: CallableFunction) {
