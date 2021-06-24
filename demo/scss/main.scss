@@ -1,56 +1,6 @@
-:root {
-	--color-primary: red;
-	--color-secondary: blue;
-}
+@import './partials/reset';
+@import './partials/variables';
 
-.hero {
-	height: 100vh;
-}
-
-.flip {
-	padding: 20vh 0;
-}
-
-.flip__inner {
-	display: flex;
-
-	&.reverse {
-		flex-direction: row-reverse;
-
-		.box {
-			height: 300px;
-			width: 500px;
-		}
-	}
-}
-
-.box {
-	position: relative;
-	z-index: -1;
-	height: 100px;
-	width: 200px;
-	background: var(--color-primary);
-}
-
-.image-gallery {
-	padding-bottom: 30vh;
-	position: relative;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-gap: 30px;
-}
-
-.gallery-image {
-	width: 100%;
-	height: auto;
-	object-fit: contain;
-}
-
-.featured-image {
-	visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-}
+@import './components/hero';
+@import './components/image-gallery';
+@import './components/text-block';

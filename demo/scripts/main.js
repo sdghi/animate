@@ -1,18 +1,18 @@
 import { Watcher, screen, flip, crossfade } from '../../lib';
 
-const flipHeading = new Watcher('.flip__heading');
+const textBlockSection = new Watcher('.text-block');
 
 // Have access the event of window.addEventListener
 screen('<=768', (e) => console.log('above tablet', e));
 screen('>768', () => console.log('below tablet'));
 
-flipHeading.scroll(
+textBlockSection.scroll(
 	'enter',
 	(el) => {
 		flip(
 			'.box',
 			() => {
-				const flipInner = document.querySelector('.flip__inner');
+				const flipInner = document.querySelector('.text-block__inner');
 
 				flipInner.classList.add('reverse');
 			},
@@ -24,7 +24,7 @@ flipHeading.scroll(
 			}
 		);
 	},
-	{ rootMargin: '-250px' }
+	{ rootMargin: '-50%' }
 );
 
 const galleryImages = document.querySelectorAll('.gallery-image');
