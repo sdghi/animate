@@ -60,7 +60,6 @@ const cardsSection = new Watcher('.cards');
 cardsSection.scroll('enter', () => {
 	console.log('entered');
 	animateLayout('.cards', '.cards__card', (parent) => {
-		console.log(parent);
-		parent.classList.add('reverse');
+		parent.classList.add('flex');
 	});
 });
