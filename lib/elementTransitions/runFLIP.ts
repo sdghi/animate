@@ -35,4 +35,9 @@ export function runFLIP(
 	} else {
 		animateFlip.play();
 	}
+
+	if (options.done) {
+		// @ts-ignore
+		animateFlip.onfinish = options.done;
+	}
 }

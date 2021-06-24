@@ -15,7 +15,12 @@ flipHeading.scroll(
 			(el) => {
 				el.classList.add('right');
 			},
-			{ duration: 400 }
+			{
+				duration: 2000,
+				done: () => {
+					console.log('finished');
+				},
+			}
 		);
 	},
 	{ rootMargin: '-250px' }
@@ -28,7 +33,9 @@ flipHeading.scroll('exit', (el) => {
 		(el) => {
 			el.classList.remove('right');
 		},
-		{ duration: 400 }
+		{
+			duration: 400,
+		}
 	);
 });
 

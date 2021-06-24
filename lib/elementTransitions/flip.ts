@@ -10,7 +10,7 @@ import { FLIPOptions } from '../types';
 
 export function flip(
 	element: string,
-	cb,
+	cb: CallableFunction,
 	options: FLIPOptions = {
 		duration: 300,
 		easing: 'ease-in-out',

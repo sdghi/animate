@@ -12,7 +12,7 @@ import { FLIPOptions } from '../types';
 export function crossfade(
 	first: string,
 	last: string,
-	cb,
+	cb: CallableFunction,
 	options: FLIPOptions = {
 		duration: 300,
 		easing: 'ease-in-out',
