@@ -9,11 +9,12 @@ screen('>768', () => console.log('below tablet'));
 flipHeading.scroll(
 	'enter',
 	(el) => {
-		console.log('is enter', el);
 		flip(
 			'.box',
-			(el) => {
-				el.classList.add('right');
+			() => {
+				const flipInner = document.querySelector('.flip__inner');
+
+				flipInner.classList.add('reverse');
 			},
 			{
 				duration: 2000,
@@ -25,19 +26,6 @@ flipHeading.scroll(
 	},
 	{ rootMargin: '-250px' }
 );
-
-flipHeading.scroll('exit', (el) => {
-	console.log('is exit', el);
-	flip(
-		'.box',
-		(el) => {
-			el.classList.remove('right');
-		},
-		{
-			duration: 400,
-		}
-	);
-});
 
 const galleryImages = document.querySelectorAll('.gallery-image');
 const featuredImage = document.querySelector('.featured-image');

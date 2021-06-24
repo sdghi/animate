@@ -11,16 +11,23 @@
 	padding: 20vh 0;
 }
 
+.flip__inner {
+	display: flex;
+
+	&.reverse {
+		flex-direction: row-reverse;
+
+		.box {
+			height: 300px;
+			width: 500px;
+		}
+	}
+}
+
 .box {
 	height: 100px;
 	width: 200px;
 	background: var(--color-primary);
-
-	&.right {
-		margin-left: auto;
-		height: 300px;
-		width: 500px;
-	}
 }
 
 .image-gallery {
