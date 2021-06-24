@@ -21,7 +21,11 @@ export class Watcher {
 		console.log('element:', this.el);
 	}
 
-	scroll(event: string, cb, options: ObserverOptions = defaultObserverOptions) {
+	scroll(
+		event: string,
+		cb: CallableFunction,
+		options: ObserverOptions = defaultObserverOptions
+	) {
 		let observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				const ratio = entry.intersectionRatio;
@@ -41,15 +45,15 @@ export class Watcher {
 		observer.observe(this.el);
 	}
 
-	scrollExit(cb) {
+	scrollExit(cb: CallableFunction) {
 		cb(this.el);
 	}
 
-	scrollEnter(cb) {
+	scrollEnter(cb: CallableFunction) {
 		cb(this.el);
 	}
 
-	click(cb) {
+	click(cb: CallableFunction) {
 		this.el.addEventListener('click', (event: Event) => {
 			cb(this.el, event);
 		});

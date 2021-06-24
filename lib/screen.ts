@@ -4,7 +4,7 @@
  * @param cb	Callback function to run if the breakpoint is active
  */
 
-export function screen(breakpoint: string, cb) {
+export function screen(breakpoint: string, cb: CallableFunction) {
 	window.addEventListener('resize', (e: Event) => {
 		const currentWidth: number = e.target.innerWidth;
 		const operator: string = breakpoint.split(/[0-9]/)[0];
