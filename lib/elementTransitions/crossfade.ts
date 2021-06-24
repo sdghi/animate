@@ -1,9 +1,17 @@
 import { runFLIP } from './runFLIP';
 import { FLIPOptions } from '../types';
 
+/**
+ *
+ * @param first Selector of first element
+ * @param last Selector of last element
+ * @param cb Callback function that has access to the last element
+ * @param options FLIP animaiton options
+ */
+
 export function crossfade(
-	first,
-	last,
+	first: string,
+	last: string,
 	cb,
 	options: FLIPOptions = {
 		duration: 300,
@@ -11,12 +19,14 @@ export function crossfade(
 		direction: 'forwards',
 	}
 ) {
-	const firstEl = document.querySelector(first);
-	firstEl.style.visibility = 'hidden';
+	const firstEl: Element = document.querySelector(first);
 	const firstRect = firstEl.getBoundingClientRect();
+	// @ts-ignore
+	firstEl.style.visibility = 'hidden';
 
-	const lastEl = document.querySelector(last);
+	const lastEl: Element = document.querySelector(last);
 	const lastRect = lastEl.getBoundingClientRect();
+
 	cb(lastEl);
 
 	runFLIP(firstRect, lastRect, lastEl, options);

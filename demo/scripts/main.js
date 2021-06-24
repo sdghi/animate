@@ -1,7 +1,6 @@
 import { Watcher, screen, flip, crossfade } from '../../lib';
 
 const flipHeading = new Watcher('.flip__heading');
-const crossfadeSection = new Watcher('.crossfade');
 
 // Have access the event of window.addEventListener
 screen('<=768', (e) => console.log('above tablet', e));
@@ -21,6 +20,17 @@ flipHeading.scroll(
 	},
 	{ rootMargin: '-250px' }
 );
+
+flipHeading.scroll('exit', (el) => {
+	console.log('is exit', el);
+	flip(
+		'.box',
+		(el) => {
+			el.classList.remove('right');
+		},
+		{ duration: 400 }
+	);
+});
 
 const galleryImages = document.querySelectorAll('.gallery-image');
 const featuredImage = document.querySelector('.featured-image');
