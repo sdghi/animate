@@ -1,67 +1,43 @@
-// TODO: REFACTOR SCREEN TO CHECK USE MATCH MEDIA
-// REVIEW TO SEE IF THIS IS A NECESSARY FEATURE
+interface MediaQueryCallbacks {
+	true?: CallableFunction;
+	false?: CallableFunction;
+}
 
 /**
  *
- * @param breakpoint Operator and pixel value of screen width (ex: '>500')
- * @param cb	Callback function to run if the breakpoint is active
+ * @param mediaQueryString Media Query String that follow Window.matchMedia() api
+ * @param callbacks An object containing a true and false callback
  */
-export function screen(breakpoint: string, cb: CallableFunction) {
-	const operator: string = breakpoint.split(/[0-9]/)[0];
-	const targetWidth: number = parseInt(breakpoint.match(/\d+/g)[0]);
 
-	let resizeTimer;
-
+export function screen(
+	mediaQueryString: string,
+	callbacks: MediaQueryCallbacks
+) {
 	window.addEventListener('resize', (e: Event) => {
-		const currentWidth: number = e.target.innerWidth;
-
-		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(
-			init(currentWidth, targetWidth, operator, cb, e),
-			250
-		);
+		runMediaQuery(mediaQueryString, callbacks, e);
 	});
 
 	window.addEventListener('load', (e) => {
-		const currentWidth: number = window.innerWidth;
-		return init(currentWidth, targetWidth, operator, cb, e);
+		runMediaQuery(mediaQueryString, callbacks, e);
 	});
 }
 
 /**
  *
- * @param currentWidth Current width of the screen
- * @param targetWidth	Target breakpoint width
- * @param operator Comparison operator
- * @param cb Callback function
+ * @param mediaQueryString Media Query String that follow Window.matchMedia() api
+ * @param callbacksAn An object containing a true and false callback
+ * @param event The event passed down from addEventListener()
  */
-function init(
-	currentWidth: number,
-	targetWidth: number,
-	operator: string,
-	cb: CallableFunction,
+function runMediaQuery(
+	mediaQueryString,
+	callbacks: MediaQueryCallbacks,
 	event: Event
 ) {
-	// Render out the correct event based on the operator
-	if (operator === '>=') {
-		if (targetWidth >= currentWidth) {
-			return cb(event);
-		}
-	} else if (operator === '<=') {
-		if (targetWidth <= currentWidth) {
-			return cb(event);
-		}
-	} else if (operator === '>') {
-		if (targetWidth > currentWidth) {
-			return cb(event);
-		}
-	} else if (operator === '<') {
-		if (targetWidth < currentWidth) {
-			return cb(event);
-		}
-	} else if (operator === '=') {
-		if (currentWidth === targetWidth) {
-			return cb(event);
-		}
+	const mql = window.matchMedia(mediaQueryString);
+
+	if (mql.matches) {
+		callbacks.true(event);
+	} else {
+		callbacks.false(event);
 	}
 }
