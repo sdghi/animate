@@ -1,4 +1,4 @@
-import { Watcher, flip, crossfade, animateLayout } from '../../lib';
+import { Watcher, flip, crossfade, animateLayout, screen } from '../../lib';
 
 const textBlockSection = new Watcher('.text-block');
 
@@ -26,33 +26,40 @@ textBlockSection.scroll(
 const galleryImages = document.querySelectorAll('.image-gallery__image');
 const featuredElement = document.querySelector('.image-gallery__featured');
 
-galleryImages.forEach((image, i) => {
-	const currentSrc = image.getAttribute('src');
-	image.addEventListener('click', () => {
-		crossfade(
-			`.image-gallery__image[data-key="${i + 1}"]`,
-			'.image-gallery__featured',
-			(el) => {
-				console.log('running crossfade');
-				el.style.visibility = 'visible';
-				el.setAttribute('data-current', i + 1);
-				el.setAttribute('src', currentSrc);
-			}
-		);
-	});
-});
+screen('(min-width: 768px)', {
+	true: () => {
+		galleryImages.forEach((image, i) => {
+			const currentSrc = image.getAttribute('src');
+			image.addEventListener('click', () => {
+				crossfade(
+					`.image-gallery__image[data-key="${i + 1}"]`,
+					'.image-gallery__featured',
+					(el) => {
+						console.log('running crossfade');
+						el.style.visibility = 'visible';
+						el.setAttribute('data-current', i + 1);
+						el.setAttribute('src', currentSrc);
+					}
+				);
+			});
+		});
 
-featuredElement.addEventListener('click', () => {
-	const currentIndex = featuredElement.getAttribute('data-current');
+		featuredElement.addEventListener('click', () => {
+			const currentIndex = featuredElement.getAttribute('data-current');
 
-	crossfade(
-		'.image-gallery__featured',
-		`.image-gallery__image[data-key="${currentIndex}"]`,
-		(el) => {
-			el.style.visibility = 'visible';
-		},
-		{ duration: 400 }
-	);
+			crossfade(
+				'.image-gallery__featured',
+				`.image-gallery__image[data-key="${currentIndex}"]`,
+				(el) => {
+					el.style.visibility = 'visible';
+				},
+				{ duration: 400 }
+			);
+		});
+	},
+	false: () => {
+		console.log('below tablet');
+	},
 });
 
 const cardsSection = new Watcher('.cards');
