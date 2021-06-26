@@ -62,15 +62,14 @@ screen('(min-width: 768px)', {
 	},
 });
 
-const cardsSection = new Watcher('.cards');
+const cardsToggle = new Watcher('.cards__toggle');
 
-cardsSection.scroll('enter', () => {
-	console.log('entered');
+cardsToggle.click((el) => {
 	animateLayout(
-		'.cards',
+		'.cards__inner',
 		'.cards__card',
 		(parent) => {
-			parent.classList.add('flex');
+			parent.classList.toggle('reverse');
 		},
 		{ duration: 2000 }
 	);
