@@ -1,6 +1,5 @@
 .cards {
-	display: block;
-	padding: 20vh 0;
+	background: rebeccapurple;
 }
 
 .cards__inner {
@@ -16,7 +15,7 @@
 		flex-direction: row-reverse;
 
 		.cards__card {
-			padding: 60px 20px;
+			padding: 60px 200px;
 		}
 	}
 }
