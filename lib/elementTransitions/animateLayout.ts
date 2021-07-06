@@ -1,3 +1,4 @@
+import { FLIPOptions } from './../types';
 import { runFLIP } from './runFLIP';
 
 type LayoutCallback = (parent: Element) => void;
@@ -11,7 +12,8 @@ type LayoutCallback = (parent: Element) => void;
 export function animateLayout(
 	parent: string,
 	childrenQueryString: string,
-	cb: LayoutCallback
+	cb: LayoutCallback,
+	options: FLIPOptions
 ) {
 	const parentEl = document.querySelector(parent);
 
@@ -30,6 +32,6 @@ export function animateLayout(
 	// Run FLIP after the layout change to calculate the second DOMRect
 	childElements.forEach((child, i) => {
 		const secondRect = child.getBoundingClientRect();
-		runFLIP(firstRects[i], secondRect, child);
+		runFLIP(firstRects[i], secondRect, child, options);
 	});
 }
