@@ -1,4 +1,13 @@
-import { Watcher, flip, crossfade, animateLayout, screen } from '../../lib';
+import {
+	Watcher,
+	flip,
+	crossfade,
+	animateLayout,
+	screen,
+	math,
+} from '../../lib';
+
+math.lerp();
 
 const textBlockSection = new Watcher('.text-block');
 const box = document.querySelector('.box');
