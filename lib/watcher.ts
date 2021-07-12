@@ -1,3 +1,5 @@
+import { getElement } from './helpers/getElement';
+
 interface ObserverOptions {
 	root?: Element;
 	rootMargin?: string;
@@ -14,11 +16,15 @@ export class Watcher {
 	el: Element;
 
 	constructor(element: string) {
-		this.el = document.querySelector(element);
+		this.el = getElement(element);
 	}
 
 	log() {
 		console.log('element:', this.el);
+	}
+
+	node() {
+		return this.el;
 	}
 
 	scroll(
