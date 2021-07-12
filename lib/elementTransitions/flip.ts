@@ -1,5 +1,4 @@
-import { getElement } from '../helpers/getElement';
-import { runFLIP } from './runFLIP';
+import { getElement, runFLIP } from '../helpers';
 import { FLIPOptions, Selector } from '../types';
 
 /**
