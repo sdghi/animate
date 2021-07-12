@@ -47,19 +47,19 @@ galleryImages.forEach((image, i) => {
 	});
 });
 
-// featuredContainer.addEventListener('click', () => {
-// 	const currentIndex = featuredElement.getAttribute('data-current');
+featuredContainer.addEventListener('click', () => {
+	const currentIndex = featuredElement.getAttribute('data-current');
 
-// 	crossfade(
-// 		'.image-gallery__featured',
-// 		`.image-gallery__image[data-key="${currentIndex}"]`,
-// 		(el) => {
-// 			featuredContainer.classList.remove('visible');
-// 			el.style.visibility = 'visible';
-// 		},
-// 		{ duration: 400 }
-// 	);
-// });
+	crossfade(
+		'.image-gallery__featured',
+		`.image-gallery__image[data-key="${currentIndex}"]`,
+		(el) => {
+			featuredContainer.classList.remove('visible');
+			el.style.visibility = 'visible';
+		},
+		{ duration: 400 }
+	);
+});
 
 // const cardsSection = new Watcher('.cards');
 
