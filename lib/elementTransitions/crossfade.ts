@@ -1,5 +1,6 @@
 import { runFLIP } from './runFLIP';
-import { FLIPOptions } from '../types';
+import { getElement } from '../helpers/getElement';
+import { FLIPOptions, Selector } from '../types';
 
 /**
  *
@@ -10,17 +11,17 @@ import { FLIPOptions } from '../types';
  */
 
 export function crossfade(
-	first: string,
-	last: string,
+	first: Selector,
+	last: Selector,
 	cb: CallableFunction,
 	options: FLIPOptions
 ) {
-	const firstEl: Element = document.querySelector(first);
+	const firstEl = getElement(first);
 	const firstRect = firstEl.getBoundingClientRect();
 	// @ts-ignore
 	firstEl.style.visibility = 'hidden';
 
-	const lastEl: Element = document.querySelector(last);
+	const lastEl = getElement(last);
 	const lastRect = lastEl.getBoundingClientRect();
 
 	cb(lastEl);

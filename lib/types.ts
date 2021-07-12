@@ -5,3 +5,5 @@ export interface FLIPOptions {
 	scale?: boolean;
 	done?: CallableFunction;
 }
+
+export type Selector = string | Element;

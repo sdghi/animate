@@ -1,4 +1,5 @@
 import { getElement } from './helpers/getElement';
+import { Selector } from './types';
 
 interface ObserverOptions {
 	root?: Element;
@@ -15,7 +16,7 @@ const defaultObserverOptions: ObserverOptions = {
 export class Watcher {
 	el: Element;
 
-	constructor(element: string) {
+	constructor(element: Selector) {
 		this.el = getElement(element);
 	}
 

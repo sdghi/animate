@@ -1,12 +1,13 @@
 import { Watcher, flip, crossfade, animateLayout, screen } from '../../lib';
 
 const textBlockSection = new Watcher('.text-block');
+const box = document.querySelector('.box');
 
 textBlockSection.scroll(
 	'enter',
 	(el) => {
 		flip(
-			'.box',
+			box,
 			() => {
 				const flipInner = document.querySelector('.text-block__inner');
 
@@ -46,30 +47,30 @@ galleryImages.forEach((image, i) => {
 	});
 });
 
-featuredContainer.addEventListener('click', () => {
-	const currentIndex = featuredElement.getAttribute('data-current');
+// featuredContainer.addEventListener('click', () => {
+// 	const currentIndex = featuredElement.getAttribute('data-current');
 
-	crossfade(
-		'.image-gallery__featured',
-		`.image-gallery__image[data-key="${currentIndex}"]`,
-		(el) => {
-			featuredContainer.classList.remove('visible');
-			el.style.visibility = 'visible';
-		},
-		{ duration: 400 }
-	);
-});
+// 	crossfade(
+// 		'.image-gallery__featured',
+// 		`.image-gallery__image[data-key="${currentIndex}"]`,
+// 		(el) => {
+// 			featuredContainer.classList.remove('visible');
+// 			el.style.visibility = 'visible';
+// 		},
+// 		{ duration: 400 }
+// 	);
+// });
 
-const cardsSection = new Watcher('.cards');
+// const cardsSection = new Watcher('.cards');
 
-cardsSection.scroll('enter', () => {
-	console.log('entered');
-	animateLayout(
-		'.cards',
-		'.cards__card',
-		(parent) => {
-			parent.classList.add('flex');
-		},
-		{ duration: 2000 }
-	);
-});
+// cardsSection.scroll('enter', () => {
+// 	console.log('entered');
+// 	animateLayout(
+// 		'.cards',
+// 		'.cards__card',
+// 		(parent) => {
+// 			parent.classList.add('flex');
+// 		},
+// 		{ duration: 2000 }
+// 	);
+// });
