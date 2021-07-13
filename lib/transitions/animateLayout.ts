@@ -1,5 +1,5 @@
-import { FLIPOptions, Selector } from '@/types';
-import { runFLIP, getElement } from '@/helpers';
+import { FLIPOptions, Selector } from '../types';
+import { runFLIP, getElement } from '../helpers';
 
 type LayoutCallback = (parent: Element) => void;
 

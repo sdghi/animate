@@ -5,11 +5,8 @@
 		"pretty": true,
 		"sourceMap": true,
 		"target": "es6",
-		"baseUrl": "." /* This is where all your code is*/,
-		"paths": {
-			"@/*": ["lib/*"]
-		},
-		"typeRoots": ["./node_modules/@types", "./src/@types"]
+		"baseUrl": ".",
+		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": ["lib/**/*.ts"],
 	"exclude": ["node_modules"]

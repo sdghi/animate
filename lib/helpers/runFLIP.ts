@@ -1,4 +1,4 @@
-import { FLIPOptions } from '@/types';
+import { FLIPOptions } from '../types';
 
 export function runFLIP(
 	firstRect,
