@@ -15,7 +15,7 @@ export function loop(values: LoopValues) {
 	 * @returns
 	 */
 	function inc(current: number, value: number) {
-		if (current > lastIndex) {
+		if (current === lastIndex) {
 			return startIndex;
 		}
 		return current + value;
