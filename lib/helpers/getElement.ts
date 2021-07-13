@@ -10,3 +10,10 @@ export function getElement(el: Selector) {
 	}
 	return el;
 }
+
+export function getAllElements(el: string) {
+	if (typeof el === 'string') {
+		return document.querySelectorAll(el);
+	}
+	return el;
+}
