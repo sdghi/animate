@@ -58,6 +58,10 @@ export class Gallery {
 		return { index: previousIndex, ...this.items[previousIndex] };
 	}
 
+	find(index: number) {
+		return { index, ...this.items[index] };
+	}
+
 	next(cb: CallableFunction) {
 		this.currentIndex = loop([0, this.items.length - 1]).inc(
 			this.currentIndex,
