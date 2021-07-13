@@ -37,7 +37,25 @@ export class Gallery {
 	}
 
 	getCurrent() {
-		return this.items[this.currentIndex];
+		return { index: this.currentIndex, ...this.items[this.currentIndex] };
+	}
+
+	getNext() {
+		const nextIndex = loop([0, this.items.length - 1]).inc(
+			this.currentIndex,
+			1
+		);
+
+		return { index: nextIndex, ...this.items[nextIndex] };
+	}
+
+	getPrevious() {
+		const previousIndex = loop([0, this.items.length - 1]).dec(
+			this.currentIndex,
+			1
+		);
+
+		return { index: previousIndex, ...this.items[previousIndex] };
 	}
 
 	next(cb: CallableFunction) {
