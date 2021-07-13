@@ -4,16 +4,22 @@ import { Selector } from '../types';
  *
  * @param el A string or DOM node
  */
-export function getElement(el: Selector) {
+export function getElement(
+	el: Selector,
+	parent: HTMLElement | Document = document
+) {
 	if (typeof el === 'string') {
-		return document.querySelector(el);
+		return parent.querySelector(el);
 	}
 	return el;
 }
 
-export function getAllElements(el: string) {
+export function getAllElements(
+	el: string,
+	parent: HTMLElement | Document = document
+) {
 	if (typeof el === 'string') {
-		return document.querySelectorAll(el);
+		return parent.querySelectorAll(el);
 	}
 	return el;
 }

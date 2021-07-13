@@ -16,20 +16,24 @@ const options: GalleryOptions = {
 };
 
 export class Gallery {
-	el: Selector;
+	el: any;
 	options: GalleryOptions;
 	items: NodeList;
 	currentIndex: number;
 
 	constructor(el: Selector, galleryOptions = options) {
-		this.el = getElement(el);
 		this.options = galleryOptions;
-		this.items = getAllElements(galleryOptions.itemSelector);
+		this.el = getElement(el);
+		this.items = getAllElements(galleryOptions.itemSelector, this.el);
 		this.currentIndex = galleryOptions.start;
 	}
 
 	node() {
 		return this.el;
+	}
+
+	getItems() {
+		return this.items;
 	}
 
 	getIndex() {
