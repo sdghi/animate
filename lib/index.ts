@@ -1,4 +1,4 @@
-export * from './watcher';
+export * from './events';
 export * from './screen';
-export * from './elementTransitions';
+export * from './transitions';
 export * from './math';
