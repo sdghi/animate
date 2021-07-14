@@ -3,15 +3,11 @@ import { getElement, getAllElements, loop } from '../helpers';
 
 interface GalleryOptions {
 	itemSelector: string;
-	nextSelector: string;
-	previousSelector: string;
 	start: number;
 }
 
 const options: GalleryOptions = {
 	itemSelector: '.gallery__item',
-	nextSelector: '.gallery__next',
-	previousSelector: '.gallery__previous',
 	start: 0,
 };
 
