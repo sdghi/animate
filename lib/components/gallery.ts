@@ -62,7 +62,7 @@ export class Gallery {
 		return { index: previousIndex, ...this.items[previousIndex] };
 	}
 
-	find(index: number) {
+	getItem(index: number) {
 		return { index, ...this.items[index] };
 	}
 
