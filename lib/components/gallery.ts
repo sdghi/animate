@@ -72,7 +72,9 @@ export class Gallery {
 			1
 		);
 
-		cb(this.currentIndex);
+		if (cb) {
+			cb(this.currentIndex);
+		}
 	}
 
 	previous(cb: CallableFunction) {
@@ -81,7 +83,9 @@ export class Gallery {
 			1
 		);
 
-		cb(this.currentIndex);
+		if (cb) {
+			cb(this.currentIndex);
+		}
 	}
 
 	log() {
