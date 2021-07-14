@@ -6,4 +6,4 @@ export interface FLIPOptions {
 	done?: CallableFunction;
 }
 
-export type Selector = string | Element;
+export type Selector = string | HTMLElement | Element;

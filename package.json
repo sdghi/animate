@@ -2,6 +2,7 @@
 	"name": "@sdg/animate",
 	"version": "0.0.1",
 	"description": "Animation library used by SDG to build interactive static sites",
+	"private": false,
 	"files": [
 		"dist"
 	],
@@ -16,7 +17,8 @@
 	"scripts": {
 		"dev": "vite demo",
 		"test": "jest",
-		"build": "vite build"
+		"build": "vite build",
+		"launch": "npm run test && npm run build && npm publish --access=public"
 	},
 	"keywords": [
 		"animation",
@@ -28,13 +30,11 @@
 	"devDependencies": {
 		"@babel/preset-env": "^7.14.7",
 		"@babel/preset-typescript": "^7.14.5",
+		"@types/jest": "^26.0.24",
 		"jest": "^27.0.6",
 		"jsdom": "^16.6.0",
 		"sass": "^1.35.1",
 		"vite": "^2.3.8",
 		"vite-plugin-live-reload": "^2.1.0"
-	},
-	"dependencies": {
-		"@types/jest": "^26.0.24"
 	}
 }

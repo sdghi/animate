@@ -3,28 +3,24 @@ import { getElement, getAllElements, loop } from '../helpers';
 
 interface GalleryOptions {
 	itemSelector: string;
-	nextSelector: string;
-	previousSelector: string;
 	start: number;
 }
 
 const options: GalleryOptions = {
 	itemSelector: '.gallery__item',
-	nextSelector: '.gallery__next',
-	previousSelector: '.gallery__previous',
 	start: 0,
 };
 
 export class Gallery {
-	el: Selector;
+	el: any;
 	options: GalleryOptions;
 	items: NodeList;
 	currentIndex: number;
 
 	constructor(el: Selector, galleryOptions = options) {
-		this.el = getElement(el);
 		this.options = galleryOptions;
-		this.items = getAllElements(galleryOptions.itemSelector);
+		this.el = getElement(el);
+		this.items = getAllElements(galleryOptions.itemSelector, this.el);
 		this.currentIndex = galleryOptions.start;
 	}
 
@@ -32,12 +28,38 @@ export class Gallery {
 		return this.el;
 	}
 
+	getItems() {
+		return this.items;
+	}
+
 	getIndex() {
 		return this.currentIndex;
 	}
 
 	getCurrent() {
-		return this.items[this.currentIndex];
+		return { index: this.currentIndex, ...this.items[this.currentIndex] };
+	}
+
+	getNext() {
+		const nextIndex = loop([0, this.items.length - 1]).inc(
+			this.currentIndex,
+			1
+		);
+
+		return { index: nextIndex, ...this.items[nextIndex] };
+	}
+
+	getPrevious() {
+		const previousIndex = loop([0, this.items.length - 1]).dec(
+			this.currentIndex,
+			1
+		);
+
+		return { index: previousIndex, ...this.items[previousIndex] };
+	}
+
+	getItem(index: number) {
+		return { index, ...this.items[index] };
 	}
 
 	next(cb: CallableFunction) {
@@ -46,7 +68,9 @@ export class Gallery {
 			1
 		);
 
-		cb(this.currentIndex);
+		if (cb) {
+			cb(this.currentIndex);
+		}
 	}
 
 	previous(cb: CallableFunction) {
@@ -55,7 +79,9 @@ export class Gallery {
 			1
 		);
 
-		cb(this.currentIndex);
+		if (cb) {
+			cb(this.currentIndex);
+		}
 	}
 
 	log() {
