@@ -1,0 +1,13 @@
+.cards {
+	display: block;
+
+	&.flex {
+		display: flex;
+	}
+}
+
+.cards__card {
+	padding: 40px;
+	border: 1px solid red;
+	margin: 30px;
+}

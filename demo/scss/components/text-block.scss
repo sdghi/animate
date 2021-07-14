@@ -1,0 +1,20 @@
+.text-block__inner {
+	display: flex;
+
+	&.reverse {
+		flex-direction: row-reverse;
+
+		.box {
+			height: 300px;
+			width: 500px;
+		}
+	}
+}
+
+.box {
+	position: relative;
+	z-index: -1;
+	height: 100px;
+	width: 200px;
+	background: var(--color-primary);
+}

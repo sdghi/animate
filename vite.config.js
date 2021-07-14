@@ -7,7 +7,7 @@ import liveReload from 'vite-plugin-live-reload';
  */
 
 module.exports = {
-	plugins: [liveReload('/docs/scss/**/*.scss')],
+	plugins: [liveReload('/demo/scss/**/*.scss')],
 	build: {
 		lib: {
 			entry: path.resolve(__dirname, 'lib/index.ts'),

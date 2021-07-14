@@ -1,30 +1,25 @@
-export function screen(breakpoint, cb) {
-	window.addEventListener('resize', (e) => {
-		const currentWidth = e.target.innerWidth;
-		const operator = breakpoint.split(/[0-9]/)[0];
-		const targetWidth = breakpoint.match(/\d+/g);
+interface MediaQueryCallbacks {
+	true?: CallableFunction;
+	false?: CallableFunction;
+}
 
-		// Render out the correct event based on the operator
-		if (operator === '>=') {
-			if (targetWidth >= currentWidth) {
-				cb(e);
-			}
-		} else if (operator === '<=') {
-			if (targetWidth <= currentWidth) {
-				cb(e);
-			}
-		} else if (operator === '>') {
-			if (targetWidth > currentWidth) {
-				cb(e);
-			}
-		} else if (operator === '<') {
-			if (targetWidth < currentWidth) {
-				cb(e);
-			}
-		} else if (operator === '=') {
-			if (currentWidth === targetWidth) {
-				cb(e);
-			}
+/**
+ *
+ * @param mediaQueryString Media Query String that follow Window.matchMedia() api
+ * @param callbacks An object containing a true and false callback
+ */
+
+export function screen(
+	mediaQueryString: string,
+	callbacks: MediaQueryCallbacks
+) {
+	const mql = window.matchMedia(mediaQueryString);
+
+	mql.addEventListener('change', (e) => {
+		if (e.matches && callbacks.true) {
+			return callbacks.true();
+		} else if (callbacks.false) {
+			return callbacks.false();
 		}
 	});
 }
