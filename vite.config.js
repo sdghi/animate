@@ -11,7 +11,7 @@ module.exports = {
 	build: {
 		lib: {
 			entry: path.resolve(__dirname, 'lib/index.ts'),
-			name: '@sdg/animate',
+			name: 'animate',
 		},
 	},
 };
