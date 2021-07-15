@@ -78,9 +78,9 @@ Each callback has access to the following properties
 ```js
 const scrollWatcher('.element');
 
-scrollWatcher.scroll('enter', (el ={
- // Will log the DOM element of '.element'
- console.log(el);
+scrollWatcher.scroll('enter', (el => {
+  // Will log the DOM element of '.element'
+  console.log(el);
 })
 ```
 
@@ -93,9 +93,9 @@ Customize the Intersection Observer options. Values can be changed in an object 
 ```js
 // Default options
 {
-  root: null,
-  rootMargin: '0px',
-  threshold: 1.0
+	root: null,
+	rootMargin: '0px',
+	threshold: 1.0
 }
 ```
 
