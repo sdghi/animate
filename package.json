@@ -11,7 +11,7 @@
     "dev": "vite demo",
     "test": "jest",
     "build": "vite build",
-    "launch": "npm run test && npm run build && npm publish --access=public"
+    "launch": "npm run test && npm run build && npm publish"
   },
   "keywords": [
     "animation",
