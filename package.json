@@ -1,13 +1,13 @@
 {
-	"name": "humdinger",
-	"version": "0.0.4",
+	"name": "@sdg/animate",
+	"version": "0.0.1",
 	"description": "Animation library used by SDG to build interactive static sites",
 	"private": false,
 	"files": [
 		"dist"
 	],
-	"main": "./dist/humdinger.umd.js",
-	"module": "./dist/humdinger.es.js",
+	"main": "./dist/animate.umd.js",
+	"module": "./dist/animate.es.js",
 	"scripts": {
 		"dev": "vite demo",
 		"test": "jest",
