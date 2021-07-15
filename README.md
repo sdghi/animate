@@ -231,3 +231,78 @@ flip(
   }
 );
 ```
+
+### Crossfade
+
+Seamlessly animate between two different element using crossfade. The `crossfade` function takes 4 arguments.
+
+```js
+// crossfade(first, last, cb, options)
+crossfade('.first', '.last', (el) => {}, {});
+```
+
+1. `first` - The first element in the animation
+2. `last` - That last element in the animation
+3. `cb` - The callback function to handle layout change has access to the `last` element.
+4. `options` - Options to adjust the animation
+
+**Options**
+
+```js
+// Default options
+{
+  duration: 300,
+  easing: 'ease-in-out',
+  direction: 'forwards',
+  scale: true,
+  done: () => {}
+}
+```
+
+- `duration` - duration of animation in milliseconds
+- `easing` - ease of the animation
+- `direction` - animation direction
+- `scale` - elements within the animating element will scale with it
+- `done` - callback function that can be run once the animation is complete
+
+**Usage**
+
+HTML
+
+```html
+<img src="image.jpg" class="small-image" alt="image" />
+<img src="image.jpg" class="large-image" alt="image" />
+```
+
+CSS
+
+```css
+.small-image,
+.large-image {
+  height: var(--height, 300px);
+  width: auto;
+}
+
+.large-image {
+  /* Only add this to the element that will be initially hidden */
+  visibility: hidden;
+  --height: 600px;
+}
+```
+
+JS
+
+```js
+import { crossfade } from 'humdinger';
+
+crossfade(
+  '.small-image',
+  '.large-image',
+  (el) => {
+    el.style.visibility = 'visible';
+  },
+  {
+    duration: 500,
+  }
+);
+```
