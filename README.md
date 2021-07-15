@@ -36,8 +36,8 @@ Each callback has access to the following properties
 
 ```js
 button.click((el) => {
-	// The clicked element
-	console.log(el);
+  // The clicked element
+  console.log(el);
 });
 ```
 
@@ -58,7 +58,7 @@ import { Watcher } from '@sdg/animate';
 const button = new Watcher('button');
 
 button.click((el) => {
-	el.innerHTML = 'New Name';
+  el.innerHTML = 'New Name';
 });
 ```
 
@@ -93,9 +93,9 @@ Customize the Intersection Observer options. Values can be changed in an object 
 ```js
 // Default options
 {
-	root: null,
-	rootMargin: '0px',
-	threshold: 1.0
+  root: null,
+  rootMargin: '0px',
+  threshold: 1.0
 }
 ```
 
@@ -111,12 +111,12 @@ CSS
 
 ```css
 .scroll-element {
-	opacity: 0;
+  opacity: 0;
 }
 
 .scroll-element[data-state='visible'] {
-	opacity: 1;
-	transition: opacity 0.2s;
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 ```
 
@@ -130,16 +130,16 @@ const scrollEl = document.querySelector('.scroll-element');
 const scrollWatcher = new Watcher(scrollEl);
 
 scrollWatcher.scroll(
-	'enter',
-	(el) => {
-		el.setAttribute('data-state', 'visible');
-	},
-	{
-		threshold: 0.5,
-	}
+  'enter',
+    el) => {
+    el.setAttribute('data-state', 'visible');
+  },
+  {
+    threshold: 0.5,
+  }
 );
 
 scrollWatcher.scroll('exit', (el) => {
-	el.setAttribute('data-state', 'hidden');
+  el.setAttribute('data-state', 'hidden');
 });
 ```
