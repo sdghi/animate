@@ -4,7 +4,7 @@
 	"description": "Animation library used by SDG to build interactive static sites",
 	"private": false,
 	"files": [
-		"dist/*"
+		"dist"
 	],
 	"main": "./dist/humdinger.umd.js",
 	"module": "./dist/humdinger.es.js",
