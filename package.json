@@ -1,34 +1,33 @@
 {
-	"name": "humdinger",
-	"version": "0.0.4",
-	"description": "Animation library used by SDG to build interactive static sites",
-	"private": false,
-	"files": [
-		"dist"
-	],
-	"main": "./dist/humdinger.umd.js",
-	"module": "./dist/humdinger.es.js",
-	"scripts": {
-		"dev": "vite demo",
-		"test": "jest",
-		"build": "vite build",
-		"launch": "npm run test && npm run build && npm publish --access=public"
-	},
-	"keywords": [
-		"animation",
-		"scroll",
-		"webgl"
-	],
-	"author": "sdghi",
-	"license": "MIT",
-	"devDependencies": {
-		"@babel/preset-env": "^7.14.7",
-		"@babel/preset-typescript": "^7.14.5",
-		"@types/jest": "^26.0.24",
-		"jest": "^27.0.6",
-		"jsdom": "^16.6.0",
-		"sass": "^1.35.1",
-		"vite": "^2.3.8",
-		"vite-plugin-live-reload": "^2.1.0"
-	}
+  "name": "humdinger",
+  "version": "0.0.4",
+  "description": "Animation library used by SDG to build interactive static sites",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/humdinger.umd.js",
+  "module": "./dist/humdinger.es.js",
+  "scripts": {
+    "dev": "vite demo",
+    "test": "jest",
+    "build": "vite build",
+    "launch": "npm run test && npm run build && npm publish --access=public"
+  },
+  "keywords": [
+    "animation",
+    "scroll",
+    "webgl"
+  ],
+  "author": "sdghi",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "jsdom": "^16.6.0",
+    "sass": "^1.35.1",
+    "vite": "^2.3.8",
+    "vite-plugin-live-reload": "^2.1.0"
+  }
 }
