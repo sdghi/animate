@@ -1,17 +1,17 @@
 {
 	"name": "humdinger",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Animation library used by SDG to build interactive static sites",
 	"private": false,
 	"files": [
-		"dist"
+		"dist/*"
 	],
-	"main": "./dist/animate.umd.js",
-	"module": "./dist/animate.es.js",
+	"main": "./dist/humdinger.umd.js",
+	"module": "./dist/humdinger.es.js",
 	"exports": {
 		".": {
-			"import": "./dist/animate.es.js",
-			"require": "./dist/animate.umd.js"
+			"import": "./dist/humdinger.es.js",
+			"require": "./dist/humdinger.umd.js"
 		}
 	},
 	"scripts": {
