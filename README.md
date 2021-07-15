@@ -10,6 +10,7 @@ A toolkit for rapidly building interactive websites
 
 - [Watcher](#Watcher)
 - [Element Transitions](#element-transitions)
+- [Combining features](#combining-features)
 
 ## Project Roadmap
 
