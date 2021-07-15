@@ -1,10 +1,10 @@
-# SDG Animate 🙈🙉🙊
+# Humdinger 🙈🙉🙊
 
 A toolkit for rapidly building interactive websites
 
 ## Get Started
 
-`npm install @sdg/animate`
+`npm install humdinger`
 
 ## Features
 
