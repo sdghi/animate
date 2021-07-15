@@ -76,12 +76,12 @@ Scroll uses the Intersection Observer under the hood, to allow you to run callba
 Each callback has access to the following properties
 
 ```js
-		const scrollWatcher('.element');
+const scrollWatcher('.element');
 
-		scrollWatcher.scroll('enter', (el => {
-			// Will log the DOM element of '.element'
-			console.log(el);
-		})
+scrollWatcher.scroll('enter', (el ={
+ // Will log the DOM element of '.element'
+ console.log(el);
+})
 ```
 
 - `el` - The element that is being observed
