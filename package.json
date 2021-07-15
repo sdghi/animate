@@ -8,12 +8,6 @@
 	],
 	"main": "./dist/humdinger.umd.js",
 	"module": "./dist/humdinger.es.js",
-	"exports": {
-		".": {
-			"import": "./dist/humdinger.es.js",
-			"require": "./dist/humdinger.umd.js"
-		}
-	},
 	"scripts": {
 		"dev": "vite demo",
 		"test": "jest",
