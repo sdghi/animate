@@ -7,11 +7,12 @@ import liveReload from 'vite-plugin-live-reload';
  */
 
 module.exports = {
-	plugins: [liveReload('/demo/scss/**/*.scss')],
-	build: {
-		lib: {
-			entry: path.resolve(__dirname, 'lib/index.ts'),
-			name: 'humdinger',
-		},
-	},
+  plugins: [liveReload('/demo/scss/**/*.scss')],
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, 'lib/index.ts'),
+      name: 'humdinger',
+    },
+    rollupOptions: {},
+  },
 };
