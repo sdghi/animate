@@ -308,7 +308,7 @@ crossfade(
 );
 ```
 
-### Combining Features
+## Combining Features
 
 Features can be chained together to create different interactions
 
