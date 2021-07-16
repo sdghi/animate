@@ -307,3 +307,49 @@ crossfade(
   }
 );
 ```
+
+### Combining Features
+
+Features can be chained together to create different interactions
+
+**FLIP on scroll**
+
+HTML
+
+```html
+<div class="parent">
+  <div class="box"></div>
+  <p>Lorem ipsum dolor</p>
+</div>
+```
+
+CSS
+
+```css
+.parent {
+  display: flex;
+}
+
+.parent.switch {
+  flex-direction: row-reverse;
+}
+
+.box {
+  height: 300px;
+  width: 300px;
+}
+```
+
+JS
+
+```js
+import { Watcher, flip } from 'humdinger';
+
+const parentEl = new Watcher('.parent');
+
+parentEl.scroll('enter', (parent) => {
+  flip('.box', () => {
+    parent.classList.add('switch');
+  });
+});
+```
