@@ -8,7 +8,16 @@
 	<link rel="stylesheet" href="./scss/main.scss">
 </head>
 <body class="flow">
-	<section class="hero"></section>
+	<section class="hero-gallery">
+		<div class="hero-gallery__item" data-state="visible">
+			<img src="img/image-1.jpeg" alt="" class="hero-gallery__item__image">
+		</div>
+		<div class="hero-gallery__item" data-state="hidden">
+			<img src="img/image-2.jpeg" alt="" class="hero-gallery__item__image">
+		</div>
+		<button class="hero-gallery__previous">previous</button>
+		<button class="hero-gallery__next">next</button>
+	</section>
 	<section class="text-block">
 		<div class="container">
 			<div class="text-block__heading">FLIP Animations</div>
