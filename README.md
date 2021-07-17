@@ -174,7 +174,7 @@ scrollWatcher.scroll('exit', (el) => {
 
 - [FLIP](#flip)
 - [Crossfade](#crossfade)
-- [Animate Layout](#animate-layout)
+- [Animate Height Auto](#animate-height-auto)
 
 ### FLIP
 
@@ -332,6 +332,102 @@ crossfade(
     duration: 500,
   }
 );
+```
+
+### Animate Height Auto
+
+The `animateHeightAuto` function watches for changes to an element and animates the height.
+
+```js
+animateHeightAuto(el, cb, options);
+```
+
+`animateHeightAuto` has 2 arguments
+
+1. `el` - The element that's height will change
+2. `cb` - A callback function to adjust the layout
+3. `options` - Animation options for the height
+   - `duration` (Number) - Duration of animation in milliseconds
+   - `easing` (String) - Ease of animation
+
+**Usage**
+
+HTML
+
+```html
+<div class="dropdown">
+  <div class="dropdown__item">
+    <button class="dropdown__toggle">Item 1</button>
+    <p class="dropdown__content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis
+      numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?
+    </p>
+  </div>
+  <div class="dropdown__item">
+    <button class="dropdown__toggle">Item 2</button>
+    <p class="dropdown__content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis
+      numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?
+    </p>
+  </div>
+  <div class="dropdown__item">
+    <button class="dropdown__toggle">Item 3</button>
+    <p class="dropdown__content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis
+      numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?
+    </p>
+  </div>
+</div>
+```
+
+JS
+
+```js
+import { Watcher, animateHeightAuto } from 'humdinger';
+
+const dropdownItems = document.querySelectorAll('.dropdown__item');
+
+dropdownItems.forEach((item) => {
+  const toggleEl = item.querySelector('.dropdown__toggle');
+  const dropdownToggle = new Watcher(toggleEl);
+  const dropdownContent = item.querySelector('.dropdown__content');
+
+  dropdownToggle.click(() => {
+    animateHeightAuto(item, () => {
+      dropdownContent.classList.toggle('open');
+    });
+  });
+});
+```
+
+CSS
+
+```css
+.dropdown {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dropdown__toggle {
+  padding: 30px 50px;
+  width: 100%;
+}
+
+.dropdown__content {
+  --border: 1px solid black;
+  background: white;
+  border-left: var(--border);
+  border-right: var(--border);
+  border-bottom: var(--border);
+  font-size: 4em;
+  display: none;
+  padding: 20px;
+
+  &.open {
+    display: block;
+  }
+}
 ```
 
 ## Gallery
