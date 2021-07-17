@@ -17,14 +17,19 @@ const heroGalleryNext = new Watcher('.hero-gallery__next');
 const heroGalleryPrev = new Watcher('.hero-gallery__previous');
 
 heroGalleryNext.click(() => {
-  console.log(heroGallery.getCurrent(), heroGallery.getItems());
-  // heroGallery.getCurrent().setAttribute('data-state', 'hidden');
-  // heroGallery.next();
-  // heroGallery.getCurrent().setAttribute('data-state', 'visible');
+  const current = heroGallery.getCurrent().element;
+  const next = heroGallery.getNext().element;
+  current.setAttribute('data-state', 'hidden');
+  next.setAttribute('data-state', 'visible');
+  heroGallery.next();
 });
 
 heroGalleryPrev.click(() => {
-  console.log('prev');
+  const current = heroGallery.getCurrent().element;
+  const prev = heroGallery.getPrevious().element;
+  current.setAttribute('data-state', 'hidden');
+  prev.setAttribute('data-state', 'visible');
+  heroGallery.previous();
 });
 
 const textBlockSection = new Watcher('.text-block');

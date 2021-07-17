@@ -10,13 +10,10 @@
   height: 100%;
   width: 100%;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s forwards;
+  transition: opacity 0.3s linear;
 
   &[data-state='visible'] {
     opacity: 1;
-    visibility: visible;
-    transition: opacity 0.2s forwards;
   }
 }
 
