@@ -84,6 +84,8 @@ export class Gallery {
       el: this.el,
       options: this.options,
       items: this.items,
+      currentIndex: this.currentIndex,
+      currentItem: this.items[this.currentIndex],
     });
   }
 }

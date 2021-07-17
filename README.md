@@ -10,6 +10,7 @@ A toolkit for rapidly building interactive websites
 
 - [Watcher](#Watcher)
 - [Element Transitions](#element-transitions)
+- [Gallery](#gallery)
 - [Combining features](#combining-features)
 
 ## Project Roadmap
@@ -331,6 +332,139 @@ crossfade(
     duration: 500,
   }
 );
+```
+
+## Gallery
+
+Handy Class for building image galleries.
+
+**Initialization**
+
+1. Import the `Gallery` class
+
+```js
+import { Gallery } from 'humdinger';
+```
+
+2. Configure: The `Gallery` class takes two arguments
+
+- `element` - a string or DOM element that contains the gallery
+- `options` - configuration options for the gallery
+  - `itemSelector` - a selector for the items in the gallery element
+  - `start` - the starting index of the gallery
+
+```js
+// Gallery(element, options)
+
+const gallery = new Gallery('.gallery', {
+  itemSelector: '.gallery__item',
+  start: 0,
+});
+```
+
+**Methods**
+
+- `node`- returns the gallery element
+- `getItems` - gets all items elements that are queried from the itemSelector option
+- `getIndex` - gets the current active index
+- `getCurrent` - returns the active items and index
+- `getNext` - returns the next item and index
+- `getPrevious` - returns the previous item and index
+- `getItem` - returns and items at a certain index
+- `next` - increments the current index (automatically loops)
+- `previous` - decrements the current index (automatically loops)
+- `log` - logs the gallery element, options, items, currentIndex and currentItem
+
+**Usage**
+
+HTML
+
+```html
+<section class="hero-gallery">
+  <div class="hero-gallery__item" data-state="visible">
+    <img src="img/image-1.jpeg" alt="" class="hero-gallery__item__image" />
+  </div>
+  <div class="hero-gallery__item" data-state="hidden">
+    <img src="img/image-2.jpeg" alt="" class="hero-gallery__item__image" />
+  </div>
+  <button class="hero-gallery__previous">previous</button>
+  <button class="hero-gallery__next">next</button>
+</section>
+```
+
+JS
+
+```js
+import { Watcher, Gallery } from 'humdinger';
+
+const heroGallery = new Gallery('.hero-gallery', {
+  itemSelector: '.hero-gallery__item',
+  start: 0,
+});
+
+const heroGalleryNext = new Watcher('.hero-gallery__next');
+const heroGalleryPrev = new Watcher('.hero-gallery__previous');
+
+heroGalleryNext.click(() => {
+  const current = heroGallery.getCurrent().element;
+  const next = heroGallery.getNext().element;
+  current.setAttribute('data-state', 'hidden');
+  next.setAttribute('data-state', 'visible');
+  heroGallery.next();
+});
+
+heroGalleryPrev.click(() => {
+  const current = heroGallery.getCurrent().element;
+  const prev = heroGallery.getPrevious().element;
+  current.setAttribute('data-state', 'hidden');
+  prev.setAttribute('data-state', 'visible');
+  heroGallery.previous();
+});
+```
+
+CSS
+
+```css
+.hero-gallery {
+  height: 60vh;
+  position: relative;
+}
+
+.hero-gallery__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+
+  &[data-state='visible'] {
+    opacity: 1;
+  }
+}
+
+.hero-gallery__item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-gallery__previous,
+.hero-gallery__next {
+  --spacing: 2%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-gallery__previous {
+  left: var(--spacing);
+}
+
+.hero-gallery__next {
+  right: var(--spacing);
+}
 ```
 
 ## Combining Features
