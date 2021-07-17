@@ -5,7 +5,11 @@ const defaultOptions: WAAPIOptions = {
   easing: 'linear',
 };
 
-export function animateHeightAuto(el: Element, cb: CallableFunction) {
+export function animateHeightAuto(
+  el: Element,
+  cb: CallableFunction,
+  options = defaultOptions
+) {
   const beforeHeight = el.clientHeight;
 
   cb();
@@ -23,6 +27,6 @@ export function animateHeightAuto(el: Element, cb: CallableFunction) {
         height: afterHeight + 'px',
       },
     ],
-    defaultOptions
+    options
   );
 }
