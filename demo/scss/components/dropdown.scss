@@ -1,0 +1,19 @@
+.dropdown {
+  border: 1px solid red;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dropdown__toggle {
+  padding: 30px 50px;
+}
+
+.dropdown__content {
+  font-size: 4em;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
