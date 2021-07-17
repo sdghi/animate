@@ -23,8 +23,33 @@ The `Watcher` allows you "watch" for certain events on a specific element and ru
 
 Here are the events available through the `Watcher`
 
+**Methods**
+
+- [log](#log)
+- [node](#node)
 - [click](#click)
 - [scroll](#scroll)
+
+### Log
+
+Will log the current element being watched
+
+```js
+const el = new Watcher('.el');
+
+// Will console.log() the el
+el.log();
+```
+
+### Node
+
+Will return the current element being watched
+
+```js
+const el = new Watcher('.el');
+
+const elementNode = el.node();
+```
 
 ### Click
 
