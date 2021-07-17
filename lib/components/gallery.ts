@@ -32,7 +32,7 @@ export class Gallery {
   }
 
   getCurrent() {
-    return { index: this.currentIndex, ...this.items[this.currentIndex] };
+    return { index: this.currentIndex, element: this.items[this.currentIndex] };
   }
 
   getNext() {
@@ -41,7 +41,7 @@ export class Gallery {
       1
     );
 
-    return { index: nextIndex, ...this.items[nextIndex] };
+    return { index: nextIndex, element: this.items[nextIndex] };
   }
 
   getPrevious() {
@@ -50,11 +50,11 @@ export class Gallery {
       1
     );
 
-    return { index: previousIndex, ...this.items[previousIndex] };
+    return { index: previousIndex, element: this.items[previousIndex] };
   }
 
   getItem(index: number) {
-    return { index, ...this.items[index] };
+    return { index, element: this.items[index] };
   }
 
   next(cb: CallableFunction) {

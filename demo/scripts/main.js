@@ -17,8 +17,7 @@ const heroGalleryNext = new Watcher('.hero-gallery__next');
 const heroGalleryPrev = new Watcher('.hero-gallery__previous');
 
 heroGalleryNext.click(() => {
-  heroGallery.next();
-  console.log('next', heroGallery.getIndex());
+  console.log(heroGallery.getCurrent(), heroGallery.getItems());
   // heroGallery.getCurrent().setAttribute('data-state', 'hidden');
   // heroGallery.next();
   // heroGallery.getCurrent().setAttribute('data-state', 'visible');
