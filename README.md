@@ -79,7 +79,7 @@ HTML
 JS
 
 ```js
-import { Watcher } from '@sdg/animate';
+import { Watcher } from 'humdinger';
 const button = new Watcher('button');
 
 button.click((el) => {
@@ -148,7 +148,7 @@ CSS
 JS
 
 ```js
-import { Watcher } from '@sdg/animate';
+import { Watcher } from 'humdinger';
 
 // You can also pass a DOM Element into the watcher
 const scrollEl = document.querySelector('.scroll-element');
