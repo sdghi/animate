@@ -1,11 +1,15 @@
 import { Watcher, animateHeightAuto } from '../../lib';
 
-const dropdownElement = document.querySelector('.dropdown');
-const dropdownToggle = new Watcher('.dropdown__toggle');
-const dropdownContent = document.querySelector('.dropdown__content');
+const dropdownItems = document.querySelectorAll('.dropdown__item');
 
-dropdownToggle.click(() => {
-  animateHeightAuto(dropdownElement, () => {
-    dropdownContent.classList.toggle('open');
+dropdownItems.forEach((item) => {
+  const toggleEl = item.querySelector('.dropdown__toggle');
+  const dropdownToggle = new Watcher(toggleEl);
+  const dropdownContent = item.querySelector('.dropdown__content');
+
+  dropdownToggle.click(() => {
+    animateHeightAuto(item, () => {
+      dropdownContent.classList.toggle('open');
+    });
   });
 });
