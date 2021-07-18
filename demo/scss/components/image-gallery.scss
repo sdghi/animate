@@ -1,6 +1,8 @@
 .image-gallery {
-  padding-bottom: 30vh;
   position: relative;
+}
+
+.image-gallery__inner {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
