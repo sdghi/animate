@@ -57,7 +57,7 @@ export class Gallery {
     return { index, element: this.items[index] };
   }
 
-  next(cb: CallableFunction) {
+  next(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).inc(
       this.currentIndex,
       1
@@ -68,7 +68,7 @@ export class Gallery {
     }
   }
 
-  previous(cb: CallableFunction) {
+  previous(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).dec(
       this.currentIndex,
       1
