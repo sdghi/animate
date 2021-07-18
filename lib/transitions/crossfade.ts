@@ -10,20 +10,21 @@ import { FLIPOptions, Selector } from '../types';
  */
 
 export function crossfade(
-	first: Selector,
-	last: Selector,
-	cb: CallableFunction,
-	options: FLIPOptions
+  first: Selector,
+  last: Selector,
+  cb: CallableFunction,
+  options: FLIPOptions
 ) {
-	const firstEl = getElement(first);
-	const firstRect = firstEl.getBoundingClientRect();
-	// @ts-ignore
-	firstEl.style.visibility = 'hidden';
+  const firstEl = getElement(first);
+  const firstRect = firstEl.getBoundingClientRect();
+  // @ts-ignore
+  firstEl.style.visibility = 'hidden';
 
-	const lastEl = getElement(last);
-	const lastRect = lastEl.getBoundingClientRect();
+  const lastEl = getElement(last);
 
-	cb(lastEl);
+  cb(lastEl);
 
-	runFLIP(firstRect, lastRect, lastEl, options);
+  const lastRect = lastEl.getBoundingClientRect();
+
+  runFLIP(firstRect, lastRect, lastEl, options);
 }

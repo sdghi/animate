@@ -37,6 +37,8 @@ export function runFLIP(
 		}
 	);
 
+	// TODO: Child elements with the data-maintain attribute will not scale during FLIP
+
 	if (options.direction === 'reverse') {
 		animateFlip.reverse();
 	} else {
