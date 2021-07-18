@@ -16,7 +16,7 @@ A toolkit for rapidly building interactive websites
 ## Project Roadmap
 
 - [Features](https://github.com/sdghi/animate/labels/enhancement)
-- [Report A Bug](https://github.com/sdghi/animate/issues)
+- [Report A Bug](https://github.com/sdghi/animate/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
 ## Watcher
 

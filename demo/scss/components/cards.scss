@@ -1,13 +1,17 @@
 .cards {
-	display: block;
+  display: block;
 
-	&.flex {
-		display: flex;
-	}
-}
+  .cards__card {
+    padding: 40px;
+    border: 1px solid red;
+    margin: 30px;
+  }
 
-.cards__card {
-	padding: 40px;
-	border: 1px solid red;
-	margin: 30px;
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .cards__card {
+      padding: 60px 200px;
+    }
+  }
 }

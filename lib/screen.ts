@@ -15,6 +15,12 @@ export function screen(
 ) {
 	const mql = window.matchMedia(mediaQueryString);
 
+	if (mql.matches && callbacks.true) {
+		return callbacks.true();
+	} else if (callbacks.false) {
+		return callbacks.false();
+	}
+
 	mql.addEventListener('change', (e) => {
 		if (e.matches && callbacks.true) {
 			return callbacks.true();
