@@ -5,6 +5,12 @@ const defaultOptions: WAAPIOptions = {
   easing: 'linear',
 };
 
+/**
+ *
+ * @param el Animating element
+ * @param cb Callback function that adjusts layout
+ * @param options WAAPI options for that animation
+ */
 export function animateHeightAuto(
   el: Element,
   cb: CallableFunction,
