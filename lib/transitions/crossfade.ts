@@ -2,7 +2,7 @@ import { runFLIP, getElement } from '../helpers';
 import { FLIPOptions, Selector } from '../types';
 
 /**
- *
+ * Animate between two different elements
  * @param first Selector of first element
  * @param last Selector of last element
  * @param cb Callback function that has access to the last element
