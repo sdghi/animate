@@ -1,5 +1,5 @@
-import { FLIPOptions } from './../types';
-import { runFLIP } from './runFLIP';
+import { FLIPOptions, Selector } from '../types';
+import { runFLIP, getElement } from '../helpers';
 
 type LayoutCallback = (parent: Element) => void;
 
@@ -10,12 +10,12 @@ type LayoutCallback = (parent: Element) => void;
  * @param cb Callback function to handle the layout change
  */
 export function animateLayout(
-	parent: string,
+	parent: Selector,
 	childrenQueryString: string,
 	cb: LayoutCallback,
 	options: FLIPOptions
 ) {
-	const parentEl = document.querySelector(parent);
+	const parentEl = getElement(parent);
 
 	const childElements = parentEl.querySelectorAll(childrenQueryString);
 

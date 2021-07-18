@@ -1,21 +1,17 @@
 .cards {
-	background: rebeccapurple;
-}
+  display: block;
 
-.cards__inner {
-	display: flex;
+  .cards__card {
+    padding: 40px;
+    border: 1px solid red;
+    margin: 30px;
+  }
 
-	.cards__card {
-		padding: 40px;
-		border: 1px solid red;
-		margin: 30px;
-	}
+  &.reverse {
+    flex-direction: row-reverse;
 
-	&.reverse {
-		flex-direction: row-reverse;
-
-		.cards__card {
-			padding: 60px 200px;
-		}
-	}
+    .cards__card {
+      padding: 60px 200px;
+    }
+  }
 }

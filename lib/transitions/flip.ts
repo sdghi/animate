@@ -1,5 +1,5 @@
-import { runFLIP } from './runFLIP';
-import { FLIPOptions } from '../types';
+import { getElement, runFLIP } from '../helpers';
+import { FLIPOptions, Selector } from '../types';
 
 /**
  *
@@ -9,11 +9,11 @@ import { FLIPOptions } from '../types';
  */
 
 export function flip(
-	element: string,
+	element: Selector,
 	cb: CallableFunction,
 	options: FLIPOptions
 ) {
-	const el = document.querySelector(element);
+	const el = getElement(element);
 	const firstRect = el.getBoundingClientRect();
 
 	cb(el);

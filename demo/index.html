@@ -7,34 +7,60 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="./scss/main.scss">
 </head>
-<body>
-	<section class="hero"></section>
+<body class="flow">
+	<section class="hero-gallery">
+		<div class="hero-gallery__item" data-state="visible">
+			<img src="img/image-1.jpeg" alt="" class="hero-gallery__item__image">
+		</div>
+		<div class="hero-gallery__item" data-state="hidden">
+			<img src="img/image-2.jpeg" alt="" class="hero-gallery__item__image">
+		</div>
+		<button class="hero-gallery__previous">previous</button>
+		<button class="hero-gallery__next">next</button>
+	</section>
+
+	<section>
+		<div class="dropdown">
+			<div class="dropdown__item">
+				<button class="dropdown__toggle">Item 1</button>
+				<p class="dropdown__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?</p>
+			</div>
+			<div class="dropdown__item">
+				<button class="dropdown__toggle">Item 2</button>
+				<p class="dropdown__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?</p>
+			</div>
+				<div class="dropdown__item">
+				<button class="dropdown__toggle">Item 3</button>
+				<p class="dropdown__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, omnis numquam. Cumque quae dolore sint debitis a deleniti ipsa nostrum?</p>
+			</div>
+		</div>
+	</section>
 	<section class="text-block">
-		<div class="text-block__heading">FLIP Animations</div>
-		<div class="text-block__inner">
-			<p class="text-block__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque magni eos facilis quia, maxime quaerat blanditiis. Quis corporis, quae harum tempore eaque eos impedit quia explicabo vitae, laboriosam, beatae eveniet.</p>
-		<div class="box"></div>
+		<div class="container">
+			<div class="text-block__heading">FLIP Animations</div>
+			<div class="text-block__inner">
+				<p class="text-block__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque magni eos facilis quia, maxime quaerat blanditiis. Quis corporis, quae harum tempore eaque eos impedit quia explicabo vitae, laboriosam, beatae eveniet.</p>
+			<div class="box"></div>
+			</div>
 		</div>
 	</section>
 	<section class="image-gallery">
-		<img class="image-gallery__image" height="200" width="200" data-key="1" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
-		<img class="image-gallery__image" height="200" width="200" data-key="2" src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
-		<img class="image-gallery__image" height="200" width="200" data-key="3" src="https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
+		<div class="[ image-gallery__inner ] [ container ]">
+				<img class="image-gallery__image" height="300" width="500" data-key="1" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
+				<img class="image-gallery__image" data-key="2" src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
+				<img class="image-gallery__image" data-key="3" src="https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
 
-		<img src="" alt="" height="200" width="200" role="presentation" class="image-gallery__featured">
+			<div class="image-gallery__featured-container">
+					<img src=""  alt="" role="presentation" class="image-gallery__featured">
+			</div>
+		</div>
 	</section>
 	<section class="cards">
-		<button class="cards__toggle">Switch Layout</button>
-		<div class="cards__inner">	
-				<div class="cards__card">
-					<img data-maintain class="image-gallery__image" height="200" width="200" data-key="3" src="https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
-				</div>
-				<div class="cards__card">
-						<img data-maintain class="image-gallery__image" height="200" width="200" data-key="2" src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
-				</div>
-				<div class="cards__card">
-				<img data-maintain class="image-gallery__image" height="200" width="200" data-key="3" src="https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="" role="presentation">
-				</div>
+		<div class="container">
+			<div class="cards__card">Lorem, ipsum dolor.</div>
+			<div class="cards__card">Ipsum, eveniet distinctio?</div>
+			<div class="cards__card">Minus, repellat deleniti?</div>
+			<div class="cards__card">Veritatis, aperiam velit!</div>
 		</div>
 	</section>
 	<script src="./scripts/main.js" type="module"></script>

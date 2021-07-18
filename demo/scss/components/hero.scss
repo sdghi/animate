@@ -1,3 +1,40 @@
-.hero {
-	height: 100vh;
+.hero-gallery {
+  height: 60vh;
+  position: relative;
+}
+
+.hero-gallery__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+
+  &[data-state='visible'] {
+    opacity: 1;
+  }
+}
+
+.hero-gallery__item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-gallery__previous,
+.hero-gallery__next {
+  --spacing: 2%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-gallery__previous {
+  left: var(--spacing);
+}
+
+.hero-gallery__next {
+  right: var(--spacing);
 }

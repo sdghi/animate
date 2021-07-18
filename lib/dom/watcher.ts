@@ -1,3 +1,6 @@
+import { getElement } from '../helpers';
+import { Selector } from '../types';
+
 interface ObserverOptions {
 	root?: Element;
 	rootMargin?: string;
@@ -13,12 +16,16 @@ const defaultObserverOptions: ObserverOptions = {
 export class Watcher {
 	el: Element;
 
-	constructor(element: string) {
-		this.el = document.querySelector(element);
+	constructor(element: Selector) {
+		this.el = getElement(element);
 	}
 
 	log() {
 		console.log('element:', this.el);
+	}
+
+	node() {
+		return this.el;
 	}
 
 	scroll(

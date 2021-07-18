@@ -8,19 +8,22 @@ export function runFLIP(
 		duration: 300,
 		easing: 'ease-in-out',
 		direction: 'forwards',
+		scale: true,
 	}
 ) {
 	// Deltas
 	const dy = firstRect.top - lastRect.top;
 	const dx = firstRect.left - lastRect.left;
-	const dh = firstRect.height / lastRect.height;
-	const dw = firstRect.width / lastRect.width;
+	let dh = firstRect.height / lastRect.height;
+	let dw = firstRect.width / lastRect.width;
+
+	console.log(firstRect.height, lastRect.height, dh, dw);
 
 	const animateFlip = el.animate(
 		[
 			{
 				transformOrigin: 'top left',
-				transform: `translate3d(${dx}px, ${dy}px, 0) scale(${dw}, ${dh})`,
+				transform: `translate3d(${dx}px, ${dy}px, 0)  scale(${dw}, ${dh})`,
 			},
 			{
 				transformOrigin: 'top left',

@@ -1,7 +1,12 @@
+@import './partials/mixins';
 @import './partials/reset';
 @import './partials/variables';
+
+@import './partials/layout';
+@import './partials/helpers';
 
 @import './components/hero';
 @import './components/image-gallery';
 @import './components/text-block';
 @import './components/cards';
+@import './components/dropdown';
