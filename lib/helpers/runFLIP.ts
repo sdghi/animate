@@ -25,8 +25,6 @@ export function runFLIP(
   let dh = firstRect.height / lastRect.height;
   let dw = firstRect.width / lastRect.width;
 
-  console.log(firstRect.height, lastRect.height, dh, dw);
-
   const animateFlip = el.animate(
     [
       {
@@ -44,8 +42,6 @@ export function runFLIP(
       fill: 'both',
     }
   );
-
-  // TODO: Child elements with the data-maintain attribute will not scale during FLIP
 
   if (options.direction === 'reverse') {
     animateFlip.reverse();
