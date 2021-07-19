@@ -3,13 +3,23 @@ import { Watcher, animateLayout } from '../../lib';
 const cardsSection = new Watcher('.cards');
 
 cardsSection.scroll('enter', () => {
-  console.log('entered');
   animateLayout(
-    '.cards',
+    '.cards__inner',
     '.cards__card',
     (parent) => {
-      parent.classList.add('flex');
+      parent.classList.add('reverse');
     },
-    { duration: 2000 }
+    { scale: false, duration: 2000 }
+  );
+});
+
+cardsSection.scroll('exit', () => {
+  animateLayout(
+    '.cards__inner',
+    '.cards__card',
+    (parent) => {
+      parent.classList.add('reverse');
+    },
+    { scale: false, duration: 2000 }
   );
 });
