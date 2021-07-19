@@ -1,4 +1,5 @@
 import { FLIPOptions } from '../types';
+import { getDeltasFromRects } from './getDeltas';
 
 /**
  * Calculate delta values and animate between them using FLIP
@@ -19,11 +20,7 @@ export function runFLIP(
     scale: true,
   }
 ) {
-  // Deltas
-  const dy = firstRect.top - lastRect.top;
-  const dx = firstRect.left - lastRect.left;
-  let dh = firstRect.height / lastRect.height;
-  let dw = firstRect.width / lastRect.width;
+  const { dx, dy, dh, dw } = getDeltasFromRects(firstRect, lastRect);
 
   const animateFlip = el.animate(
     [
