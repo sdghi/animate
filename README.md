@@ -175,6 +175,7 @@ scrollWatcher.scroll('exit', (el) => {
 - [FLIP](#flip)
 - [Crossfade](#crossfade)
 - [Animate Height Auto](#animate-height-auto)
+- [Animate On](#animate-on)
 
 ### FLIP
 
@@ -427,6 +428,118 @@ CSS
   &.open {
     display: block;
   }
+}
+```
+
+### Animate On
+
+The `animateOn` functions allows you to run a css animation before an element mounts or unmount from the page.
+
+```js
+import { animateOn } from 'humdinger';
+
+animateOn(mode, element);
+```
+
+It takes two arguments:
+
+- `mode` (string) - Mode of the element
+  - `mount` - when an element appears
+  - `unmount` - when an element is exiting
+- `element` (Element | string) - A DOM Element or string selector of the animating element
+
+**Initializaiton**
+
+1. Create an element with a `data-transition` attribute, the value you pass here will be used in the css animation.
+
+HTML
+
+```html
+<div class="element" data-transition="fade">Animate Me</div>
+```
+
+2. Use `animateOn` to animate between a state
+
+JS
+
+```js
+// This works
+animateOn('mount', '.element');
+
+// This also works
+const element = document.querySelector('.element');
+
+animateOn('unmount', element);
+```
+
+3. Running `animateOn` will take the elements `data-transition` attribute and add a data attribute with the value and current state. Use css to animate between the states
+
+CSS
+
+```css
+// data-transition="fade" will create the data-fade attribute
+
+// 'mount' will create the 'enter'
+[data-fade='enter'] {
+  opacity: 1;
+  transition: opacity 0.4s linear;
+}
+
+// 'unmount' will create the 'exit'
+[data-fade='exit'] {
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+```
+
+**Usage**
+
+HTML
+
+```html
+<button class="toggle__show">Show</button>
+<button class="toggle__hide">Hide</button>
+<div class="toggle__element" data-transition="fade-up">
+  <h2>This is the toggle element</h2>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, maiores
+    at! Quia illum ipsum, minus ratione totam reprehenderit. Totam, dolorum.
+    Dicta dolores sint totam animi non a labore accusamus hic.
+  </p>
+</div>
+```
+
+JS
+
+```js
+import { animateOn, Watcher } from 'humdinger';
+
+const toggleShow = new Watcher('.toggle__show');
+const toggleHide = new Watcher('.toggle__hide');
+const toggleElement = document.querySelector('.toggle__element');
+
+toggleShow.click(() => {
+  animateOn('mount', toggleElement);
+});
+
+toggleHide.click(() => {
+  animateOn('unmount', toggleElement);
+});
+```
+
+CSS
+
+```css
+[data-fade-up='enter'] {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.3s linear, transform 0.4s ease-in;
+}
+
+[data-fade-up='exit'] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s linear, transform 0.4s ease-out;
 }
 ```
 
