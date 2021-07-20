@@ -1,0 +1,15 @@
+[data-fade='enter'] {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.3s linear, transform 0.4s ease-in;
+}
+
+[data-fade='exit'] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s linear, transform 0.4s ease-out;
+}
+
+.toggle__element {
+  height: 1000px;
+}
