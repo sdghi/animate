@@ -1,4 +1,6 @@
+import { Selector } from './../types';
 import { WAAPIOptions } from '../types';
+import { getElement } from '../helpers';
 
 const defaultOptions: WAAPIOptions = {
   duration: 150,
@@ -12,10 +14,12 @@ const defaultOptions: WAAPIOptions = {
  * @param options WAAPI options for that animation
  */
 export function animateHeightAuto(
-  el: Element,
+  element: Selector,
   cb: CallableFunction,
   options = defaultOptions
 ) {
+  const el = getElement(element);
+
   const beforeHeight = el.clientHeight;
 
   cb();

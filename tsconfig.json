@@ -1,13 +1,13 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"moduleResolution": "node",
-		"pretty": true,
-		"sourceMap": true,
-		"target": "es6",
-		"baseUrl": ".",
-		"typeRoots": ["./node_modules/@types"]
-	},
-	"include": ["lib/**/*.ts"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "sourceMap": true,
+    "target": "es6",
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": ["lib/**/*.ts", "lib/helpers/__tests__/getDeltas.test.js"],
+  "exclude": ["node_modules"]
 }
