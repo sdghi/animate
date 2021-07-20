@@ -1,5 +1,5 @@
-import { Selector } from './../types';
-import { getElement } from './../helpers';
+import { Selector } from '../types';
+import { getElement } from '../helpers';
 
 export function animateOn(mode: string, el: Selector) {
   const element = getElement(el);
