@@ -16,6 +16,8 @@ export function animateOn(mode: string, el: Selector) {
   const { clientHeight, clientWidth } = element;
 
   if (mode === 'mount') {
+    element.removeAttribute('aria-hidden');
+
     //@ts-ignore
     element.style = `
       visibility: visible;
@@ -33,10 +35,10 @@ export function animateOn(mode: string, el: Selector) {
       width: ${clientWidth}px;
       `;
     });
-  }
-
-  if (mode === 'unmount') {
+  } else if (mode === 'unmount') {
     setState('exit');
+
+    element.setAttribute('aria-hidden', 'true');
 
     element.addEventListener('transitionend', () => {
       //@ts-ignore
@@ -44,6 +46,7 @@ export function animateOn(mode: string, el: Selector) {
       visibility: hidden;
       height: 0px;
       width: 0px;
+      padding: 0px;
       `;
     });
   }
