@@ -35,9 +35,7 @@ export function animateOn(mode: string, el: Selector) {
       width: ${clientWidth}px;
       `;
     });
-  }
-
-  if (mode === 'unmount') {
+  } else if (mode === 'unmount') {
     setState('exit');
 
     element.setAttribute('aria-hidden', 'true');
