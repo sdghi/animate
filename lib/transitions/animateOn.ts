@@ -16,6 +16,8 @@ export function animateOn(mode: string, el: Selector) {
   const { clientHeight, clientWidth } = element;
 
   if (mode === 'mount') {
+    element.removeAttribute('aria-hidden');
+
     //@ts-ignore
     element.style = `
       visibility: visible;
@@ -37,6 +39,8 @@ export function animateOn(mode: string, el: Selector) {
 
   if (mode === 'unmount') {
     setState('exit');
+
+    element.setAttribute('aria-hidden', 'true');
 
     element.addEventListener('transitionend', () => {
       //@ts-ignore
