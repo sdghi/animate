@@ -44,6 +44,7 @@ export function animateOn(mode: string, el: Selector) {
       visibility: hidden;
       height: 0px;
       width: 0px;
+      padding: 0px;
       `;
     });
   }
