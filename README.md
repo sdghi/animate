@@ -464,15 +464,15 @@ mount(element);
 CSS
 
 ```css
-// data-transition="fade" will create the data-fade attribute
+/* data-transition="fade" will create the data-fade attribute */
 
-// 'mount' will create the 'enter'
+/* 'mount' will create the 'enter' */
 [data-fade='enter'] {
   opacity: 1;
   transition: opacity 0.4s linear;
 }
 
-// 'unmount' will create the 'exit'
+/* 'unmount' will create the 'exit' */
 [data-fade='exit'] {
   opacity: 0;
   transition: opacity 0.4s linear;
