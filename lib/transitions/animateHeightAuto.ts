@@ -15,8 +15,8 @@ const defaultOptions: WAAPIOptions = {
  */
 export function animateHeightAuto(
   element: Selector,
-  cb: CallableFunction,
-  options = defaultOptions
+  cb: CallableFunction = () => null,
+  options: WAAPIOptions = defaultOptions
 ) {
   const el = getElement(element);
 
@@ -26,7 +26,23 @@ export function animateHeightAuto(
 
   const afterHeight = el.clientHeight;
 
-  el.animate(
+  transformHeightDeltas(el, beforeHeight, afterHeight, options);
+}
+
+/**
+ * Transform the height an element based on the delatas of two height
+ * @param element Animated element
+ * @param beforeHeight Starting height
+ * @param afterHeight Ending height
+ * @param options WAAPI options for the animation
+ */
+export function transformHeightDeltas(
+  element: Element,
+  beforeHeight: number,
+  afterHeight: number,
+  options: WAAPIOptions = defaultOptions
+) {
+  element.animate(
     [
       {
         transformOrigin: 'top left',
