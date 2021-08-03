@@ -435,9 +435,9 @@ CSS
 
 The mounting functions handles showing and hiding elements, allowing users to run css animation during the process.
 
-`mount` - When you want show an element
-`unmount` - When you want to hide an element
-`toggleMounting` - When you want to toggle the mounting of an element
+- `mount` - When you want show an element
+- `unmount` - When you want to hide an element
+- `toggleMounting` - When you want to toggle the mounting of an element
 
 Each of the functions take an `element` as an argument.
 
