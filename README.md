@@ -175,7 +175,7 @@ scrollWatcher.scroll('exit', (el) => {
 - [FLIP](#flip)
 - [Crossfade](#crossfade)
 - [Animate Height Auto](#animate-height-auto)
-- [Animate On](#animate-on)
+- [Mounting](#mounting)
 
 ### FLIP
 
@@ -431,24 +431,17 @@ CSS
 }
 ```
 
-### Animate On
+### Mounting
 
-The `animateOn` functions allows you to run a css animation before an element mounts or unmount from the page.
+The mounting functions handles showing and hiding elements, allowing users to run css animation during the process.
 
-```js
-import { animateOn } from 'humdinger';
+`mount` - When you want show an element
+`unmount` - When you want to hide an element
+`toggleMounting` - When you want to toggle the mounting of an element
 
-animateOn(mode, element);
-```
+Each of the functions take an `element` as an argument.
 
-It takes two arguments:
-
-- `mode` (string) - Mode of the element
-  - `mount` - when an element appears
-  - `unmount` - when an element is exiting
-- `element` (Element | string) - A DOM Element or string selector of the animating element
-
-**Initializaiton**
+**Initialization**
 
 1. Create an element with a `data-transition` attribute, the value you pass here will be used in the css animation.
 
@@ -458,21 +451,15 @@ HTML
 <div class="element" data-transition="fade">Animate Me</div>
 ```
 
-2. Use `animateOn` to animate between a state
-
-JS
+2. Use on of the mounting functions to animate the element
 
 ```js
-// This works
-animateOn('mount', '.element');
-
-// This also works
 const element = document.querySelector('.element');
 
-animateOn('unmount', element);
+mount(element);
 ```
 
-3. Running `animateOn` will take the elements `data-transition` attribute and add a data attribute with the value and current state. Use css to animate between the states
+3. Running the mounting functions will take the elements `data-transition` attribute and add a data attribute with the value and current state. Use css to animate between the states
 
 CSS
 
@@ -512,18 +499,18 @@ HTML
 JS
 
 ```js
-import { animateOn, Watcher } from 'humdinger';
+import { mount, unmount, Watcher } from 'humdinger';
 
 const toggleShow = new Watcher('.toggle__show');
 const toggleHide = new Watcher('.toggle__hide');
 const toggleElement = document.querySelector('.toggle__element');
 
 toggleShow.click(() => {
-  animateOn('mount', toggleElement);
+  mount(toggleElement);
 });
 
 toggleHide.click(() => {
-  animateOn('unmount', toggleElement);
+  unmount(toggleElement);
 });
 ```
 
