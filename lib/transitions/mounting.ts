@@ -13,6 +13,13 @@ export function mount(el: Selector) {
   // Remove inline styles previously set from the transitionend
   element.removeAttribute('style');
 
+  // Don't run if the element is already mounted
+  if (
+    !element.hasAttribute('aria-hidden') ||
+    element.getAttribute('aria-hidden') === 'false'
+  )
+    return;
+
   const { clientHeight, clientWidth } = element;
 
   element.removeAttribute('aria-hidden');
@@ -38,12 +45,13 @@ export function mount(el: Selector) {
 
 export function unmount(el: Selector) {
   const element = getElement(el);
-
   const transitionName = element.getAttribute('data-transition');
 
-  if (element)
-    // Remove inline styles previously set from the transitionend
-    element.removeAttribute('style');
+  // Don't run if the element is already unmounted
+  if (element.getAttribute('aria-hidden') === 'true') return;
+
+  // Remove inline styles previously set from the transitionend
+  element.removeAttribute('style');
 
   setState(element, transitionName, 'exit');
 
