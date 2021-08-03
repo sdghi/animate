@@ -2,4 +2,4 @@ export * from './flip';
 export * from './crossfade';
 export * from './animateLayout';
 export * from './animateHeightAuto';
-export * from './animateOn';
+export * from './mounting';
