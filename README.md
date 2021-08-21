@@ -175,6 +175,7 @@ scrollWatcher.scroll('exit', (el) => {
 - [FLIP](#flip)
 - [Crossfade](#crossfade)
 - [Animate Height Auto](#animate-height-auto)
+- [Watch Height Change](#watch-height-change)
 - [Mounting](#mounting)
 
 ### FLIP
@@ -429,6 +430,52 @@ CSS
     display: block;
   }
 }
+```
+
+# Watch Height Change
+
+The `watchHeightChange` function uses the Mutation Observer to animate changes within an element's height. It's useful to use when a height change is not happening within a callback. For example a tabbed section using `details` and `summary`.
+
+```js
+watchHeightChange(el, cb);
+```
+
+`animateHeightAuto` has 2 arguments
+
+1. `el` - The element being watched
+2. `cb` - A callback function that is executed after the height change. It has access to an object of the following properties
+   - `mutation` - the mutation from the observer
+   - `element` - the DOM element being animated
+   - `beforeHeight` - the element height before the change
+   - `afterHeight` - the element height after the change
+
+**Usage**
+
+JS
+
+```js
+import { watchHeightChange } from 'humdinger';
+
+import { watchHeightChange } from '../../lib';
+
+const tabElement = document.querySelector('.css-tabbable__tab');
+
+watchHeightChange(tabElement, ({ afterHeight }) =>
+  console.log(`Height has changed to ${afterHeight}`)
+).observe();
+```
+
+HTML
+
+```html
+<section class="css-tabbable">
+  <details class="css-tabbable__tab">
+    <summary class="css-tabbable__tab__toogle">Toggle Me</summary>
+    <div class="css-tabbable__tab__content">
+      This is the inner content of the tabbable section
+    </div>
+  </details>
+</section>
 ```
 
 ### Mounting
