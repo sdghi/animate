@@ -432,7 +432,7 @@ CSS
 }
 ```
 
-# Watch Height Change
+### Watch Height Change
 
 The `watchHeightChange` function uses the Mutation Observer to animate changes within an element's height. It's useful to use when a height change is not happening within a callback. For example a tabbed section using `details` and `summary`.
 
