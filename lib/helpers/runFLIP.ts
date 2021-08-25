@@ -1,4 +1,3 @@
-import { FLIPOptions } from '../types';
 import { getDeltasFromRects } from './getDeltas';
 
 /**

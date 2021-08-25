@@ -1,5 +1,4 @@
 import { getElement, runFLIP } from '../helpers';
-import { FLIPOptions, Selector } from '../types';
 
 /**
  * Animate an element using FLIP

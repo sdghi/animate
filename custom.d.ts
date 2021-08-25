@@ -1,4 +1,4 @@
-export interface FLIPOptions {
+interface FLIPOptions {
   duration?: number;
   easing?: string;
   direction?: string;
@@ -6,9 +6,9 @@ export interface FLIPOptions {
   done?: CallableFunction;
 }
 
-export type Selector = string | HTMLElement | Element;
+type Selector = string | HTMLElement | Element;
 
-export interface WAAPIOptions {
+interface WAAPIOptions {
   duration: number;
   easing: string;
   fill?: 'forwards';

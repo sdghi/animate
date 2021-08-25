@@ -1,4 +1,3 @@
-import { Selector } from './../types';
 import { getElement } from './getElement';
 
 /**

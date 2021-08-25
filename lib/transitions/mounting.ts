@@ -1,4 +1,3 @@
-import { Selector } from '../types';
 import { getElement } from '../helpers';
 
 function setState(element: Element, transitionName: string, state: string) {

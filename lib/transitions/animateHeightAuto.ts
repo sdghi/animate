@@ -1,5 +1,3 @@
-import { Selector } from './../types';
-import { WAAPIOptions } from '../types';
 import { getElement } from '../helpers';
 
 const defaultOptions: WAAPIOptions = {
