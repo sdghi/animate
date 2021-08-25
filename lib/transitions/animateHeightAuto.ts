@@ -1,6 +1,6 @@
 import { getElement } from '../helpers';
 
-const defaultOptions: WAAPIOptions = {
+export const defaultOptions: WAAPIOptions = {
   duration: 150,
   easing: 'linear',
 };

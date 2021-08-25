@@ -1,4 +1,5 @@
-import { transformHeightDeltas } from './animateHeightAuto';
+import { WAAPIOptions } from './../types';
+import { transformHeightDeltas, defaultOptions } from './animateHeightAuto';
 
 const config = { attributes: true, childList: true, subtree: true };
 
@@ -9,13 +10,17 @@ const config = { attributes: true, childList: true, subtree: true };
  * @returns Mutation Observer observer and disconect functions
  */
 
-export function watchHeightChange(element, cb: CallableFunction) {
+export function watchHeightChange(
+  element,
+  cb: CallableFunction,
+  options: WAAPIOptions = defaultOptions
+) {
   let beforeHeight = element.clientHeight;
 
   const observerCallback = (mutations) => {
     for (const mutation of mutations) {
       const afterHeight = element.clientHeight;
-      transformHeightDeltas(element, beforeHeight, afterHeight);
+      transformHeightDeltas(element, beforeHeight, afterHeight, options);
       beforeHeight = afterHeight;
 
       if (cb) {
