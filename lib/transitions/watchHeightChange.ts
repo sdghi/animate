@@ -1,4 +1,3 @@
-import { WAAPIOptions } from './../types';
 import { transformHeightDeltas, defaultOptions } from './animateHeightAuto';
 
 const config = { attributes: true, childList: true, subtree: true };
