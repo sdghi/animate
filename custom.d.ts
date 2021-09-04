@@ -13,3 +13,8 @@ interface WAAPIOptions {
   easing: string;
   fill?: 'forwards';
 }
+
+interface GalleryOptions {
+  itemSelector: string;
+  start: number;
+}

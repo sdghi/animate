@@ -1,10 +1,5 @@
 import { getElement, getAllElements, loop } from '../helpers';
 
-interface GalleryOptions {
-  itemSelector: string;
-  start: number;
-}
-
 export class Gallery {
   el: any;
   options: GalleryOptions;
