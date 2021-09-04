@@ -1,8 +1,6 @@
-import { Selector } from './../types';
-import { WAAPIOptions } from '../types';
 import { getElement } from '../helpers';
 
-const defaultOptions: WAAPIOptions = {
+export const defaultOptions: WAAPIOptions = {
   duration: 150,
   easing: 'linear',
 };
