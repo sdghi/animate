@@ -19,23 +19,23 @@ export class Gallery {
     this.currentIndex = this.options.start;
   }
 
-  node() {
+  public node() {
     return this.el;
   }
 
-  getItems() {
+  public getItems() {
     return this.items;
   }
 
-  getIndex() {
+  public getIndex() {
     return this.currentIndex;
   }
 
-  getCurrent() {
+  public getCurrent() {
     return { index: this.currentIndex, element: this.items[this.currentIndex] };
   }
 
-  getNext() {
+  public getNext() {
     const nextIndex = loop([0, this.items.length - 1]).inc(
       this.currentIndex,
       1
@@ -44,7 +44,7 @@ export class Gallery {
     return { index: nextIndex, element: this.items[nextIndex] };
   }
 
-  getPrevious() {
+  public getPrevious() {
     const previousIndex = loop([0, this.items.length - 1]).dec(
       this.currentIndex,
       1
@@ -53,11 +53,11 @@ export class Gallery {
     return { index: previousIndex, element: this.items[previousIndex] };
   }
 
-  getItem(index: number) {
+  public getItem(index: number) {
     return { index, element: this.items[index] };
   }
 
-  next(cb?: CallableFunction) {
+  public next(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).inc(
       this.currentIndex,
       1
@@ -68,7 +68,7 @@ export class Gallery {
     }
   }
 
-  previous(cb?: CallableFunction) {
+  public previous(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).dec(
       this.currentIndex,
       1
@@ -79,7 +79,7 @@ export class Gallery {
     }
   }
 
-  log() {
+  public log() {
     console.log({
       el: this.el,
       options: this.options,
