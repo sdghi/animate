@@ -1,5 +1,3 @@
-import { Selector } from '../types';
-
 /**
  * Return the DOM element using either a string or selector
  * @param el A string or DOM node

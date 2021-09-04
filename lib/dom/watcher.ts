@@ -1,5 +1,4 @@
 import { getElement } from '../helpers';
-import { Selector } from '../types';
 
 interface ObserverOptions {
   root?: Element;

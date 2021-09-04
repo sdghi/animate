@@ -6,7 +6,9 @@
     "sourceMap": true,
     "target": "es6",
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"]
+    "paths": {
+      "*": ["./node_modules/@types", "custom.d.ts"]
+    }
   },
   "include": ["lib/**/*.ts", "lib/helpers/__tests__/getDeltas.test.js"],
   "exclude": ["node_modules"]

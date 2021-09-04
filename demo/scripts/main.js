@@ -5,3 +5,4 @@ import './cardSection';
 import './dropdown';
 import './toggle';
 import './cssTabbable';
+import './addDom';
