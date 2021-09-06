@@ -13,3 +13,10 @@ interface WAAPIOptions {
   easing: string;
   fill?: 'forwards';
 }
+
+interface GalleryOptions {
+  itemSelector: string;
+  start: number;
+  timer?: number;
+  timerFn?: CallableFunction;
+}

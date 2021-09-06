@@ -28,3 +28,21 @@ toggleState.click(() => {
     toggleMounting(toggleElement);
   });
 });
+
+toggleShow.click(() => {
+  animateHeightAuto('.toggle', () => {
+    mount(toggleElement);
+  });
+});
+
+toggleHide.click(() => {
+  animateHeightAuto('.toggle', () => {
+    unmount(toggleElement);
+  });
+});
+
+toggleState.click(() => {
+  animateHeightAuto('.toggle', () => {
+    toggleMounting(toggleElement);
+  });
+});
