@@ -3,7 +3,7 @@ import { Watcher, Gallery } from '../../lib';
 const heroGallery = new Gallery('.hero-gallery', {
   itemSelector: '.hero-gallery__item',
   start: 0,
-  timer: 2000,
+  timer: 5000,
   timerFn: nextSlide,
 });
 
