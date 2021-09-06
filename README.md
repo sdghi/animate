@@ -595,6 +595,8 @@ import { Gallery } from 'humdinger';
 - `options` - configuration options for the gallery
   - `itemSelector` - a selector for the items in the gallery element
   - `start` - the starting index of the gallery
+  - `timer` - Value of timer duration in ms (ex: 5000)
+  - `timerFn` - Function to run during timer
 
 ```js
 // Gallery(element, options)
@@ -608,6 +610,8 @@ const gallery = new Gallery('.gallery', {
 **Methods**
 
 - `node`- returns the gallery element
+- `initTimer` - starts gallery timer
+- `resetTimer` - reset gallery timer
 - `getItems` - gets all items elements that are queried from the itemSelector option
 - `getIndex` - gets the current active index
 - `getCurrent` - returns the active items and index
@@ -638,30 +642,46 @@ HTML
 JS
 
 ```js
-import { Watcher, Gallery } from 'humdinger';
+import { Watcher, Gallery } from '../../lib';
 
 const heroGallery = new Gallery('.hero-gallery', {
   itemSelector: '.hero-gallery__item',
   start: 0,
+  timer: 5000,
+  timerFn: nextSlide,
 });
 
 const heroGalleryNext = new Watcher('.hero-gallery__next');
 const heroGalleryPrev = new Watcher('.hero-gallery__previous');
 
-heroGalleryNext.click(() => {
+function nextSlide() {
   const current = heroGallery.getCurrent().element;
   const next = heroGallery.getNext().element;
   current.setAttribute('data-state', 'hidden');
   next.setAttribute('data-state', 'visible');
   heroGallery.next();
-});
+}
 
-heroGalleryPrev.click(() => {
+function previousSlide() {
   const current = heroGallery.getCurrent().element;
   const prev = heroGallery.getPrevious().element;
   current.setAttribute('data-state', 'hidden');
   prev.setAttribute('data-state', 'visible');
   heroGallery.previous();
+}
+
+heroGallery.initTimer(() => {
+  nextSlide();
+});
+
+heroGalleryNext.click(() => {
+  heroGallery.resetTimer();
+  nextSlide();
+});
+
+heroGalleryPrev.click(() => {
+  heroGallery.resetTimer();
+  previousSlide();
 });
 ```
 

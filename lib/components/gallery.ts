@@ -1,40 +1,53 @@
 import { getElement, getAllElements, loop } from '../helpers';
 
-interface GalleryOptions {
-  itemSelector: string;
-  start: number;
-}
-
 export class Gallery {
   el: any;
   options: GalleryOptions;
   items: NodeList;
   currentIndex: number;
+  timer: any;
 
   constructor(el: Selector, galleryOptions: GalleryOptions) {
     this.options = galleryOptions;
     this.el = getElement(el);
     this.items = getAllElements(galleryOptions.itemSelector, this.el);
     this.currentIndex = this.options.start;
+    this.timer;
   }
 
-  node() {
+  public initTimer() {
+    this.timer = setInterval(() => {
+      console.log(this.options);
+      this.options.timerFn();
+    }, this.options.timer);
+  }
+
+  public resetTimer(cb: CallableFunction) {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.initTimer();
+    } else {
+      cb();
+    }
+  }
+
+  public node() {
     return this.el;
   }
 
-  getItems() {
+  public getItems() {
     return this.items;
   }
 
-  getIndex() {
+  public getIndex() {
     return this.currentIndex;
   }
 
-  getCurrent() {
+  public getCurrent() {
     return { index: this.currentIndex, element: this.items[this.currentIndex] };
   }
 
-  getNext() {
+  public getNext() {
     const nextIndex = loop([0, this.items.length - 1]).inc(
       this.currentIndex,
       1
@@ -43,7 +56,7 @@ export class Gallery {
     return { index: nextIndex, element: this.items[nextIndex] };
   }
 
-  getPrevious() {
+  public getPrevious() {
     const previousIndex = loop([0, this.items.length - 1]).dec(
       this.currentIndex,
       1
@@ -52,11 +65,11 @@ export class Gallery {
     return { index: previousIndex, element: this.items[previousIndex] };
   }
 
-  getItem(index: number) {
+  public getItem(index: number) {
     return { index, element: this.items[index] };
   }
 
-  next(cb?: CallableFunction) {
+  public next(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).inc(
       this.currentIndex,
       1
@@ -67,7 +80,7 @@ export class Gallery {
     }
   }
 
-  previous(cb?: CallableFunction) {
+  public previous(cb?: CallableFunction) {
     this.currentIndex = loop([0, this.items.length - 1]).dec(
       this.currentIndex,
       1
@@ -78,7 +91,7 @@ export class Gallery {
     }
   }
 
-  log() {
+  public log() {
     console.log({
       el: this.el,
       options: this.options,
