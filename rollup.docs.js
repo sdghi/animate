@@ -12,16 +12,7 @@ export default {
   input: inputFile,
   output: [
     {
-      file: 'dist/humdinger.es.js',
-      format: 'es',
-    },
-    {
-      file: 'dist/humdinger.umd.js',
-      name: 'humdinger',
-      format: 'umd',
-    },
-    {
-      file: 'dist/humdinger.iife.js',
+      file: 'docs/js/humdinger.iife.js',
       name: 'humdinger',
       format: 'iife',
     },
