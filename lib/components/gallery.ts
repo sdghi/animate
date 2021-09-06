@@ -5,12 +5,30 @@ export class Gallery {
   options: GalleryOptions;
   items: NodeList;
   currentIndex: number;
+  timer: any;
 
   constructor(el: Selector, galleryOptions: GalleryOptions) {
     this.options = galleryOptions;
     this.el = getElement(el);
     this.items = getAllElements(galleryOptions.itemSelector, this.el);
     this.currentIndex = this.options.start;
+    this.timer;
+  }
+
+  public initTimer() {
+    this.timer = setInterval(() => {
+      console.log(this.options);
+      this.options.timerFn();
+    }, this.options.timer);
+  }
+
+  public resetTimer(cb: CallableFunction) {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.initTimer();
+    } else {
+      cb();
+    }
   }
 
   public node() {

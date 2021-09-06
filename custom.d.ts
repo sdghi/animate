@@ -17,4 +17,6 @@ interface WAAPIOptions {
 interface GalleryOptions {
   itemSelector: string;
   start: number;
+  timer?: number;
+  timerFn?: CallableFunction;
 }
