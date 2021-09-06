@@ -6,7 +6,13 @@
     "dist"
   ],
   "main": "./dist/humdinger.umd.js",
+  "unpkg": "./dist/humdinger.iife.js",
   "module": "./dist/humdinger.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/humdinger.es.js"
+    }
+  },
   "scripts": {
     "dev": "vite demo",
     "test": "jest",
@@ -20,6 +26,10 @@
   ],
   "author": "sdghi",
   "license": "MIT",
+  "homepage": "https://github.com/sdghi/humdinger",
+  "bugs": {
+    "url": "https://github.com/sdghi/humdinger/issues?q=is%3Aissue+is%3Aopen+label%3Abug"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
@@ -27,7 +37,7 @@
     "jest": "^27.0.6",
     "jsdom": "^16.6.0",
     "sass": "^1.35.1",
-    "vite": "^2.3.8",
+    "vite": "^2.5.3",
     "vite-plugin-live-reload": "^2.1.0"
   }
 }
