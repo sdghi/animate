@@ -24,15 +24,13 @@
         <circle class="home__scroll__illustration__circle" style="--delay: 0.2s" cx="436" cy="442" r="43" fill="#0C363C"/>
       </svg>
       <div class="home__scroll__content">
-        <h2 class="home__scroll__content__title">{{home.scroll.title}}</h2>
-        <p class="home__scroll__content__body">{{home.scroll.body}}</p>
+        <p class="home__scroll__content__body" data-scroll>{{home.scroll.body}}</p>
       </div>
     </section>
 
     {% include 'partials/spacer.njk' %}
 
     <section class="home__dropdown">
-      <h2 class="home__dropdown__title">{{home.dropdown.title}}</h2>
       <div class="home__dropdown__items">
         {% for dropdown in home.dropdown.items %}
           <details class="home__dropdown__items__item">

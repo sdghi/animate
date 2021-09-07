@@ -1,6 +1,6 @@
 hero:
   title: Humdinger
-  subtitle: Animation library used by SDG to build interactive static sites
+  subtitle: Animation library by SDG to build interactive static sites
   buttons:
     - label: View API
       url: /api
