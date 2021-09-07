@@ -31,8 +31,6 @@ module.exports = (config) => {
   // 11ty filter
   config.addNunjucksFilter('log', (content) => console.log('log', content));
 
-  config.pathPrefix = '/humdinger/site';
-
   return {
     dir: {
       input: 'docs',
