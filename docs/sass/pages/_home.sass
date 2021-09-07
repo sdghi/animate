@@ -1,0 +1,43 @@
+@use '../mixins/spacing'
+@use '../mixins/container'
+@use '../mixins/layout'
+
+.home__hero
+  +container.default
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  padding-bottom: spacing.level(6)
+
+.home__features
+  +container.default
+
+.home__scroll
+  +container.default
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  gap: spacing.level(4)
+
+.home__scroll__illustration
+  width: 100%
+  max-width: 600px
+
+.home__scroll__illustration__circle
+  transform: scale(0) translateY(200px) rotateX(20deg)
+  transform-origin: center
+
+.home__scroll__illustration[data-in-view="true"] .home__scroll__illustration__circle
+  transform: scale(1) translateY(0) rotateX(0)
+  transition: all 0.6s var(--ease-in-out-cubic) var(--delay)
+
+.home__dropdown
+  +container.small
+
+.home__dropdown__items
+  +spacing.top(2)
+  +layout.flow(spacing.level(1))
+
+.home__dropdown__items__item__body
+  +spacing.top(0.5)

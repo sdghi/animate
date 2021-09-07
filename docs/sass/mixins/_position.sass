@@ -1,0 +1,17 @@
+=snap($direction)
+  @if $direction == 'tl'
+    top: 0
+    left: 0
+  @else if $direction == 'tr'
+    top: 0
+    right: 0
+  @else if $direction == 'bl'
+    bottom: 0
+    left: 0
+  @else if $direction == 'br'
+    right: 0
+    bottom: 0
+  @else if $direction == 'center'
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)

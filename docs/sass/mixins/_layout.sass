@@ -1,0 +1,24 @@
+=flow($flow-space: 130px)
+  > * + *
+    margin-top: $flow-space
+
+=columns($width, $count, $gap)
+  column-count: $count
+  column-width: $width
+  column-gap: $gap
+
+=flex-center
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+=grid-columns($columns, $gap)
+  display: grid
+  grid-gap: $gap
+  grid-template-columns: repeat($columns, 1fr)
+
+=grid-auto($fill: auto-fill, $min-content: 250px, $max-content: 1fr, $gap)
+  display: grid
+  grid-gap: $gap
+  grid-template-columns: repeat($fill, minmax($min-content, $max-content))

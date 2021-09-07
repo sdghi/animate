@@ -1,0 +1,5 @@
+@function level($value: 1, $inc: 10px)
+  @return $value * $inc
+
+=top($value: 1, $inc: 10px)
+  margin-top: level($value, $inc)
