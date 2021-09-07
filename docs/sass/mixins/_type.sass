@@ -1,0 +1,64 @@
+@use './spacing'
+
+=display-1
+  font-size: clamp(48px, 7vw, 72px)
+  font-family: var(--font-display)
+
+=display-2
+  font-size: clamp(36px, 5vw, 64px)
+  font-family: var(--font-display)
+
+=subtitle-1
+  font-size: clamp(24px, 4vw, 36px)
+
+=subtitle-2
+  font-size: clamp(20px, 3vw, 28px)
+  font-weight: 400
+
+=heading-sm
+  font-family: var(--font-display)
+  font-size: 20px
+  line-height: 24px
+  font-weight: 400
+  letter-spacing: 0.2px
+
+=body-md
+  font-size: 18px
+  font-weight: 300
+  line-height: 1.5
+
+=body-lg
+  font-size: 22px
+  font-weight: 300
+  line-height: 1.5
+
+=link
+  display: block
+  text-decoration: none
+  color: var(--color-black)
+  &:hover
+    color: var(--color-pink)
+
+=cta-text
+  font-size: 16px
+  font-weight: 500
+  text-transform: uppercase
+  letter-spacing: 0.1em
+
+=button
+  width: fit-content
+  padding: spacing.level(1) spacing.level(2)
+  background: var(--color-yellow)
+  border: 2px solid var(--color-black)
+  border-radius: spacing.level(1)
+  font-weight: 600
+  font-size: 20px
+  transition: transform 0.2s var(--ease-in-out-quad)
+  &:hover
+    transform: rotate(10deg) scale(1.05)
+
+=button-reset
+  padding: 0
+  margin: 0
+  border: 0
+  background: transparent

@@ -1,0 +1,18 @@
+@use '../mixins/spacing'
+@use '../mixins/type'
+
+details
+  overflow: hidden
+
+summary
+  cursor: pointer
+  +type.heading-sm
+
+details > summary
+  list-style: none
+
+details > summary::-webkit-details-marker
+  display: none
+
+.spacer
+  height: spacing.level(7)

@@ -1,3 +1,5 @@
+const yaml = require('yaml');
+
 module.exports = (config) => {
   config.setTemplateFormats([
     // Templates:
@@ -22,6 +24,9 @@ module.exports = (config) => {
   config.setBrowserSyncConfig({
     files: ['./lib'],
   });
+
+  // Set YAML as default content file
+  config.addDataExtension('yaml', (contents) => yaml.parse(contents));
 
   // 11ty filter
   config.addNunjucksFilter('log', (content) => console.log('log', content));

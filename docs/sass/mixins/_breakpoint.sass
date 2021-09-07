@@ -1,0 +1,24 @@
+$phone: 768px
+$tablet: 1024px
+$laptop: 1440px
+$desktop: 1920px
+
+=phone
+  @media screen and ( min-width:  $phone )
+    @content
+
+=tablet
+  @media screen and (min-width: $tablet)
+    @content
+
+=laptop
+  @media screen and (min-width: $laptop)
+    @content
+
+=desktop
+  @media screen and (min-width: $desktop)
+    @content
+
+=screen($breakpoint)
+  @media screen and ( min-width: $breakpoint)
+    @content

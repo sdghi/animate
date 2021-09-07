@@ -1,0 +1,17 @@
+@use './util'
+
+=container
+  width: var(--default-width)
+  +util.push-auto
+
+=default
+  max-width: var(--container-default)
+  +container
+
+=small
+  max-width: var(--container-small)
+  +container
+
+=medium
+  max-width: var(--container-medium)
+  +container

@@ -1,7 +1,47 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-  <article data-template="home">
-    {{content | safe}}
+  <article data-template="home" class="home">
+    <section class="home__hero">
+      <h2 class="home__hero__title">{{home.hero.title}}</h2>
+      <h3 class="home__hero__subhead">{{home.hero.subtitle}}</h3>
+      <div class="home__hero__buttons">
+        {% for button in home.hero.buttons %}
+          <a href="{{button.url}}" class="home__hero__buttons__button button">{{button.label}}</a>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include 'partials/spacer.njk' %}
+
+    <section class="home__scroll" id="features">
+      <svg class="home__scroll__illustration" data-scroll width="726" height="584" viewBox="0 0 726 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.1s" cx="273" cy="325" r="84" fill="#C6944C"/>
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.3s" cx="128" cy="170" r="67" fill="#84C9B8"/>
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.5s" cx="607.5" cy="364.5" r="65.5" fill="#EED36C"/>
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.2s" cx="117" cy="479" r="49" fill="#EABC4E"/>
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.7s" cx="472" cy="143" r="109" fill="#EA3056"/>
+        <circle class="home__scroll__illustration__circle" style="--delay: 0.2s" cx="436" cy="442" r="43" fill="#0C363C"/>
+      </svg>
+      <div class="home__scroll__content">
+        <p class="home__scroll__content__body" data-scroll>{{home.scroll.body}}</p>
+      </div>
+    </section>
+
+    {% include 'partials/spacer.njk' %}
+
+    <section class="home__dropdown">
+      <div class="home__dropdown__items">
+        {% for dropdown in home.dropdown.items %}
+          <details class="home__dropdown__items__item">
+            <summary class="home__dropdown__items__item__toggle">{{dropdown.title}}</summary>
+            <p class="home__dropdown__items__item__body">{{dropdown.body}}</p>
+          </details>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include 'partials/spacer.njk' %}
+
   </article>
 {% endblock %}
