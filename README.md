@@ -8,7 +8,7 @@ A toolkit for rapidly building interactive websites
 `npm install humdinger`
 
 **UNPKG**
-`<script src="https://unpkg.com/humdinger@0.0.9/dist/humdinger.iife.js"></script>
+`<script src="https://unpkg.com/humdinger@0.0.9/dist/humdinger.iife.js"></script>`
 
 ## Features
 
