@@ -1,4 +1,10 @@
-import { getElement, getAllElements, loop } from "../helpers";
+import {
+  getElement,
+  getAllElements,
+  loop,
+  requestInterval,
+  clearRequestInterval,
+} from "../helpers";
 
 export class Gallery {
   el: any;
@@ -16,14 +22,14 @@ export class Gallery {
   }
 
   public initTimer() {
-    this.timer = setInterval(() => {
+    this.timer = requestInterval(() => {
       this.options.timerFn();
     }, this.options.timer);
   }
 
   public resetTimer(cb: CallableFunction) {
     if (this.timer) {
-      clearInterval(this.timer);
+      clearRequestInterval(this.timer);
       this.initTimer();
     } else {
       cb();
