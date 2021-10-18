@@ -1,6 +1,6 @@
 {
   "name": "humdinger",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Animation library by SDG to build interactive static sites",
   "files": [
     "dist"

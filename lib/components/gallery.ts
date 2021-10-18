@@ -1,4 +1,4 @@
-import { getElement, getAllElements, loop } from '../helpers';
+import { getElement, getAllElements, loop } from "../helpers";
 
 export class Gallery {
   el: any;
@@ -17,7 +17,6 @@ export class Gallery {
 
   public initTimer() {
     this.timer = setInterval(() => {
-      console.log(this.options);
       this.options.timerFn();
     }, this.options.timer);
   }

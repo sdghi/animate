@@ -390,7 +390,6 @@ var humdinger = (function (exports) {
         }
         initTimer() {
             this.timer = setInterval(() => {
-                console.log(this.options);
                 this.options.timerFn();
             }, this.options.timer);
         }
