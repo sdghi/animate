@@ -6,26 +6,38 @@
 @use '../mixins/util'
 
 .home__hero
-  +container.default
+  position: relative
   height: 100vh
   display: flex
   flex-direction: column
   justify-content: flex-end
   padding-bottom: spacing.level(6)
 
-.home__hero__title
+.home__hero__canvas
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  z-index: -1
+  pointer-events: none
+
+.home__hero__inner
+  +container.default
+
+.home__hero__inner__title
   +type.display-1
 
-.home__hero__subhead
+.home__hero__inner__subhead
   +type.subtitle-2
 
-.home__hero__buttons
+.home__hero__inner__buttons
   +spacing.top(2)
   display: flex
   flex-wrap: wrap
   gap: spacing.level(2)
 
-.home__hero__buttons__button
+.home__hero__inner__buttons__button
   +type.button
 
 .home__features

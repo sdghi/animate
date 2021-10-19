@@ -3,13 +3,16 @@
 {% block content %}
   <article data-template="home" class="home">
     <section class="home__hero">
-      <h2 class="home__hero__title">{{home.hero.title}}</h2>
-      <h3 class="home__hero__subhead">{{home.hero.subtitle}}</h3>
-      <div class="home__hero__buttons">
-        {% for button in home.hero.buttons %}
-          <a href="{{button.url}}" class="home__hero__buttons__button button">{{button.label}}</a>
-        {% endfor %}
+      <div class="home__hero__inner">
+        <h2 class="home__hero__inner__title">{{home.hero.title}}</h2>
+        <h3 class="home__hero__inner__subhead">{{home.hero.subtitle}}</h3>
+        <div class="home__hero__inner__buttons">
+          {% for button in home.hero.buttons %}
+            <a href="{{button.url}}" class="home__hero__inner__buttons__button button">{{button.label}}</a>
+          {% endfor %}
+        </div>
       </div>
+      <canvas class="home__hero__canvas"></canvas>
     </section>
 
     {% include 'partials/spacer.njk' %}

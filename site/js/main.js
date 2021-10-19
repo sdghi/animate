@@ -1,5 +1,30 @@
-const { Watcher, watchHeightChange, Gallery } = humdinger;
+const { Watcher, watchHeightChange, Gallery, Sketch } = humdinger;
 
+// Home Hero
+const homeHeroCanvas = document.querySelector(".home__hero__canvas");
+
+const homeSketch = new Sketch(
+  homeHeroCanvas,
+  window.innerWidth,
+  window.innerHeight
+);
+
+homeSketch.init();
+
+homeSketch.draw = (ts, ctx) => {
+  // Lines
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "brown";
+  ctx.beginPath();
+  ctx.moveTo(125, 350);
+  ctx.lineTo(175, 350);
+  ctx.lineTo(175, 330);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+};
+
+// Home Scroll
 const homeScrollWatcher = new Watcher(".home__scroll__illustration");
 const scrollElements = document.querySelectorAll("[data-scroll]");
 
