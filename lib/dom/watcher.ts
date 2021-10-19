@@ -1,4 +1,4 @@
-import { getElement } from '../helpers';
+import { getElement } from "../helpers";
 
 interface ObserverOptions {
   root?: Element;
@@ -8,7 +8,7 @@ interface ObserverOptions {
 
 const defaultObserverOptions: ObserverOptions = {
   root: null,
-  rootMargin: '0px',
+  rootMargin: "0px",
   threshold: 1.0,
 };
 
@@ -20,7 +20,7 @@ export class Watcher {
   }
 
   log() {
-    console.log('element:', this.el);
+    console.log("element:", this.el);
   }
 
   node() {
@@ -35,12 +35,13 @@ export class Watcher {
     let observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const ratio = entry.intersectionRatio;
-        if (event === 'enter') {
+
+        if (event === "enter") {
           if (entry.isIntersecting) {
             this.scrollEnter(cb);
           }
         }
-        if (event === 'exit') {
+        if (event === "exit") {
           if (ratio === 0) {
             this.scrollExit(cb);
           }
@@ -65,7 +66,7 @@ export class Watcher {
   }
 
   click(cb: CallableFunction) {
-    this.el.addEventListener('click', (event: Event) => {
+    this.el.addEventListener("click", (event: Event) => {
       cb(this.el, event);
     });
   }

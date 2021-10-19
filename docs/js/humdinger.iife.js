@@ -164,9 +164,24 @@ var humdinger = (function (exports) {
                                 : clearInterval(handle);
     }
 
+    /**
+     * @param el Element thats scroll percentage is being watched
+     * @param cb Callback function that has a reference to the scroll percentage
+     */
+    function percentScrolled(el, cb) {
+        function watch() {
+            const elRect = el.getBoundingClientRect();
+            const distanceScrolled = Math.abs(elRect.top);
+            const deltaTop = distanceScrolled / elRect.height;
+            const percentScrolled = deltaTop * 100;
+            cb(percentScrolled);
+        }
+        document.addEventListener("scroll", watch);
+    }
+
     const defaultObserverOptions = {
         root: null,
-        rootMargin: '0px',
+        rootMargin: "0px",
         threshold: 1.0,
     };
     class Watcher {
@@ -174,7 +189,7 @@ var humdinger = (function (exports) {
             this.el = getElement(element);
         }
         log() {
-            console.log('element:', this.el);
+            console.log("element:", this.el);
         }
         node() {
             return this.el;
@@ -183,12 +198,12 @@ var humdinger = (function (exports) {
             let observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     const ratio = entry.intersectionRatio;
-                    if (event === 'enter') {
+                    if (event === "enter") {
                         if (entry.isIntersecting) {
                             this.scrollEnter(cb);
                         }
                     }
-                    if (event === 'exit') {
+                    if (event === "exit") {
                         if (ratio === 0) {
                             this.scrollExit(cb);
                         }
@@ -208,7 +223,7 @@ var humdinger = (function (exports) {
             cb(this.el);
         }
         click(cb) {
-            this.el.addEventListener('click', (event) => {
+            this.el.addEventListener("click", (event) => {
                 cb(this.el, event);
             });
         }
@@ -502,6 +517,7 @@ var humdinger = (function (exports) {
     exports.loop = loop;
     exports.math = math;
     exports.mount = mount;
+    exports.percentScrolled = percentScrolled;
     exports.requestInterval = requestInterval;
     exports.runFLIP = runFLIP;
     exports.screen = screen;

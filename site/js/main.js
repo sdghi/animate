@@ -1,4 +1,10 @@
-const { Watcher, watchHeightChange, Gallery } = humdinger;
+const {
+  Watcher,
+  watchHeightChange,
+  flip,
+  Gallery,
+  percentScrolled,
+} = humdinger;
 
 const homeScrollWatcher = new Watcher(".home__scroll__illustration");
 const scrollElements = document.querySelectorAll("[data-scroll]");
@@ -41,6 +47,16 @@ const detailElements = document.querySelectorAll("details");
 
 detailElements.forEach((el) => {
   watchHeightChange(el).observe();
+});
+
+// Home Hero
+const homeHero = new Watcher(".home__hero");
+
+percentScrolled(homeHero.el, (scrollPerc) => {
+  console.log(scrollPerc);
+  if (Math.floor(scrollPerc) === 50) {
+    console.log("above 50");
+  }
 });
 
 // Home Gallery
