@@ -14,15 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
       
-:root{--color-white: #fefcf6;--color-black: #2D2926;--color-grey: #818386;--color-light-grey: #E0E1E3;--color-dark-blue: #0c363c;--color-pink: #EA3056;--color-yellow: #EED36C;--color-dark-yellow: #EABC4E;--color-brown: #c6944c;--color-light-blue: #84c9b8;--color-loading-content-color: #f1f2f6;--font-base: "Source Sans Pro", sans-serif;--font-display: "Oswald", sans-serif;--default-width: 90%;--container-default: 1300px;--container-xs: 700px;--container-small: 900px;--container-medium: 1900px;--ease-in-cubic: cubic-bezier(0.55,0.06,0.68,0.19);--ease-in-quad: cubic-bezier(0.55,0.08,0.68,0.53);--ease-in-sine: cubic-bezier(0.47,0,0.75,0.72);--ease-out-cubic: cubic-bezier(0.22,0.61,0.36,1);--ease-out-quad: cubic-bezier(0.25,0.46,0.45,0.94);--ease-out-sine: cubic-bezier(0.39,0.57,0.56,1);--ease-in-out-cubic: cubic-bezier(0.65,0.05,0.36,1);--ease-in-out-quad: cubic-bezier(0.46,0.03,0.52,0.96);--ease-in-out-sine: cubic-bezier(0.45,0.05,0.55,0.95)}*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role=list],ol[role=list]{list-style:none}html,html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{display:block;max-width:100%}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}}*,*:before,*:after{font-family:var(--font-base)}h2{font-size:clamp(24px, 4vw, 36px)}a{display:block;text-decoration:none;color:var(--color-black)}a:hover{color:var(--color-pink)}p{font-size:22px;font-weight:300;line-height:1.5}details{overflow:hidden}summary{cursor:pointer;font-family:var(--font-display);font-size:20px;line-height:24px;font-weight:400;letter-spacing:.2px}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}.spacer{height:70px}.header{padding:20px 0;position:fixed;top:0;left:0;width:100%}.header__inner{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto}.footer__inner{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;padding:40px 0}.home__hero{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:60px}.home__hero__title{font-size:clamp(48px, 7vw, 72px);font-family:var(--font-display)}.home__hero__subhead{font-size:clamp(20px, 3vw, 28px);font-weight:400}.home__hero__buttons{margin-top:20px;display:flex;flex-wrap:wrap;gap:20px}.home__hero__buttons__button{width:fit-content;padding:10px 20px;background:var(--color-yellow);border:2px solid var(--color-black);border-radius:10px;font-weight:600;font-size:20px;transition:transform .2s var(--ease-in-out-quad)}.home__hero__buttons__button:hover{transform:rotate(10deg) scale(1.05)}.home__features{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto}.home__scroll{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:40px}.home__scroll__illustration{width:100%;max-width:600px}.home__scroll__illustration__circle{transform:scale(0) translateY(40px);transform-origin:center}.home__scroll__illustration[data-in-view=true] .home__scroll__illustration__circle{transform:scale(1) translateY(0);transition:all .5s var(--ease-in-out-cubic) var(--delay)}.home__scroll__content__body{opacity:0;transform:translateY(50px)}.home__scroll__content__body[data-in-view=true]{opacity:1;transform:translateY(0);transition:transform .5s var(--ease-out-cubic),opacity .7s linear;transition-delay:.5s}.home__dropdown{max-width:var(--container-small);width:var(--default-width);margin-right:auto;margin-left:auto}.home__dropdown__title{text-align:center}.home__dropdown__items{margin-top:20px}.home__dropdown__items>*+*{margin-top:10px}.home__dropdown__items__item__body{margin-top:5px}
+:root{--color-white: #fefcf6;--color-black: #2D2926;--color-grey: #818386;--color-light-grey: #E0E1E3;--color-dark-blue: #0c363c;--color-pink: #EA3056;--color-yellow: #EED36C;--color-dark-yellow: #EABC4E;--color-brown: #c6944c;--color-light-blue: #84c9b8;--color-loading-content-color: #f1f2f6;--font-base: "Source Sans Pro", sans-serif;--font-display: "Oswald", sans-serif;--default-width: 90%;--container-default: 1300px;--container-xs: 700px;--container-small: 900px;--container-medium: 1900px;--ease-in-cubic: cubic-bezier(0.55,0.06,0.68,0.19);--ease-in-quad: cubic-bezier(0.55,0.08,0.68,0.53);--ease-in-sine: cubic-bezier(0.47,0,0.75,0.72);--ease-out-cubic: cubic-bezier(0.22,0.61,0.36,1);--ease-out-quad: cubic-bezier(0.25,0.46,0.45,0.94);--ease-out-sine: cubic-bezier(0.39,0.57,0.56,1);--ease-in-out-cubic: cubic-bezier(0.65,0.05,0.36,1);--ease-in-out-quad: cubic-bezier(0.46,0.03,0.52,0.96);--ease-in-out-sine: cubic-bezier(0.45,0.05,0.55,0.95)}*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role=list],ol[role=list]{list-style:none}html,html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{display:block;max-width:100%}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}}*,*:before,*:after{font-family:var(--font-base)}h2{font-size:clamp(24px, 4vw, 36px)}a{display:block;text-decoration:none;color:var(--color-black)}a:hover{color:var(--color-pink)}p{font-size:22px;font-weight:300;line-height:1.5}details{overflow:hidden}summary{cursor:pointer;font-family:var(--font-display);font-size:20px;line-height:24px;font-weight:400;letter-spacing:.2px}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}.spacer{height:70px}.header{padding:20px 0;position:fixed;top:0;left:0;width:100%}.header__inner{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto}.footer__inner{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;padding:40px 0}.home__hero{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:60px}.home__hero__title{font-size:clamp(48px, 7vw, 72px);font-family:var(--font-display)}.home__hero__subhead{font-size:clamp(20px, 3vw, 28px);font-weight:400}.home__hero__buttons{margin-top:20px;display:flex;flex-wrap:wrap;gap:20px}.home__hero__buttons__button{width:fit-content;padding:10px 20px;background:var(--color-yellow);border:2px solid var(--color-black);border-radius:10px;font-weight:600;font-size:20px;transition:transform .2s var(--ease-in-out-quad)}.home__hero__buttons__button:hover{transform:rotate(10deg) scale(1.05)}.home__features{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto}.home__scroll{max-width:var(--container-default);width:var(--default-width);margin-right:auto;margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:40px}.home__scroll__illustration{width:100%;max-width:600px}.home__scroll__illustration__circle{transform:scale(0) translateY(40px);transform-origin:center}.home__scroll__illustration[data-in-view=true] .home__scroll__illustration__circle{transform:scale(1) translateY(0);transition:all .5s var(--ease-in-out-cubic) var(--delay)}.home__scroll__content__body{opacity:0;transform:translateY(50px)}.home__scroll__content__body[data-in-view=true]{opacity:1;transform:translateY(0);transition:transform .5s var(--ease-out-cubic),opacity .7s linear;transition-delay:.5s}.home__dropdown{max-width:var(--container-small);width:var(--default-width);margin-right:auto;margin-left:auto}.home__dropdown__title{text-align:center}.home__dropdown__items{margin-top:20px}.home__dropdown__items>*+*{margin-top:10px}.home__dropdown__items__item__body{margin-top:5px}.home__gallery{max-width:var(--container-small);width:var(--default-width);margin-right:auto;margin-left:auto}.home__gallery__items{display:flex;width:100%;overflow-x:scroll;scroll-behavior:smooth;scroll-snap-type:x mandatory}.home__gallery__items::-webkit-scrollbar{display:none}.home__gallery__items__item{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:normal}.home__gallery__items__item__figure__image{height:500px;width:100%;object-fit:cover}.home__gallery__nav{margin-top:30px;display:flex;gap:10px}.home__gallery__nav__button{border:2px solid var(--color-dark-yellow);background:transparent;height:20px;width:20px;padding:0;border-radius:50%}.home__gallery__nav__button:hover,.home__gallery__nav__button[data-current=true]{background:var(--color-dark-yellow)}.home__gallery__nav__button span{position:absolute;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip:rect(0 0 0 0);clip-path:inset(50%)}
 
 
     </style>
   </head>
   <body>
-    <header class="header">
-  <div class="header__inner">header inner</div>
-</header>
+    
 
     <main>
       
@@ -56,21 +54,22 @@
     </section>
 
     <div class="spacer" aria-hidden="false"></div>
+    <div class="spacer" aria-hidden="false"></div>
 
     <section class="home__dropdown">
       <div class="home__dropdown__items">
         
-          <details class="home__dropdown__items__item">
+          <details class="home__dropdown__items__item" open>
             <summary class="home__dropdown__items__item__toggle">Item 1</summary>
             <p class="home__dropdown__items__item__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa est. Donec magna metus, posuere quis erat eget, gravida pretium dui. Suspendisse placerat bibendum hendrerit. Ut vitae laoreet justo. Nam sit amet mauris commodo nisl pulvinar lacinia. Vestibulum semper bibendum arcu vel elementum. Cras rhoncus, quam eget ullamcorper consequat, metus tellus tempus libero, non semper elit nibh quis urna. Sed malesuada dapibus est, in dapibus turpis gravida vitae. Mauris a leo massa. Phasellus lacus ligula, cursus eget vulputate quis, tempor sed nulla.</p>
           </details>
         
-          <details class="home__dropdown__items__item">
+          <details class="home__dropdown__items__item" >
             <summary class="home__dropdown__items__item__toggle">Item 2</summary>
             <p class="home__dropdown__items__item__body">Fusce id turpis libero. In finibus leo non scelerisque efficitur. Nam ullamcorper lorem volutpat sagittis semper. Praesent lobortis at mi ut volutpat. Phasellus rutrum tristique ultricies. Suspendisse nec fermentum lacus. Duis aliquet enim sit amet leo molestie egestas. In finibus, tellus in suscipit venenatis, augue est varius neque, quis pulvinar ipsum metus id elit. In hac habitasse platea dictumst. Nullam ornare a quam non facilisis. Phasellus sit amet porta lectus. Aliquam tempor ex id risus vulputate eleifend. Mauris euismod augue at nibh pellentesque volutpat. Sed tincidunt est ac justo facilisis, vitae sodales dui luctus. Donec vitae risus aliquam nunc condimentum convallis non sit amet massa.</p>
           </details>
         
-          <details class="home__dropdown__items__item">
+          <details class="home__dropdown__items__item" >
             <summary class="home__dropdown__items__item__toggle">Item 3</summary>
             <p class="home__dropdown__items__item__body">Integer at suscipit nibh, tincidunt consectetur tortor. Aliquam congue nunc sit amet erat rutrum, eget pulvinar lectus semper. Quisque scelerisque mauris id turpis blandit mollis. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum in consectetur nisl. Pellentesque rhoncus elit quis metus blandit, nec cursus nisi fringilla. In nec hendrerit elit. Sed quis mi eget mauris iaculis placerat quis vel ante. Mauris efficitur ante tristique lectus fringilla, eu scelerisque ligula consequat. Proin sed auctor ex.</p>
           </details>
@@ -79,7 +78,47 @@
     </section>
 
     <div class="spacer" aria-hidden="false"></div>
+    <div class="spacer" aria-hidden="false"></div>
 
+    <section class="home__gallery">
+      <div class="home__gallery__items">
+              
+          <div class="home__gallery__items__item">
+            <figure class="home__gallery__items__item__figure" data-current="true">
+              <img class="home__gallery__items__item__figure__image" src="https://images.unsplash.com/photo-1634351583902-0216460f6413?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" alt="Image 1"> 
+              <figcaption class="home__gallery__items__item__figure__caption">Simplified logic for creating gallery components</figcaption>
+            </figure>
+          </div>
+              
+          <div class="home__gallery__items__item">
+            <figure class="home__gallery__items__item__figure" data-current="false">
+              <img class="home__gallery__items__item__figure__image" src="https://images.unsplash.com/photo-1634482900402-576b9dcdbfa5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1336&amp;q=80" alt="Image 2"> 
+              <figcaption class="home__gallery__items__item__figure__caption">Full control over how you want to animate</figcaption>
+            </figure>
+          </div>
+              
+          <div class="home__gallery__items__item">
+            <figure class="home__gallery__items__item__figure" data-current="false">
+              <img class="home__gallery__items__item__figure__image" src="https://images.unsplash.com/photo-1634572542630-35d1e2aa12fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" alt="Image 3"> 
+              <figcaption class="home__gallery__items__item__figure__caption">Built-in timer using Request Animation Frame</figcaption>
+            </figure>
+          </div>
+        
+      </div>
+
+      <div class="home__gallery__nav">
+              
+          <button class="home__gallery__nav__button" data-value="0" data-current="true" tabindex="0"><span class="visually-hidden">View slide 0</span></button>
+              
+          <button class="home__gallery__nav__button" data-value="1" data-current="false" tabindex="0"><span class="visually-hidden">View slide 1</span></button>
+              
+          <button class="home__gallery__nav__button" data-value="2" data-current="false" tabindex="0"><span class="visually-hidden">View slide 2</span></button>
+        
+      </div>
+    </section>
+
+    <div class="spacer" aria-hidden="false"></div>
+    <div class="spacer" aria-hidden="false"></div>
   </article>
 
     </main>

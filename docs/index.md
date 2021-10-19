@@ -1,5 +1,4 @@
 ---
 layout: layouts/home.njk
+showHeader: false
 ---
-
-# This is the homepage

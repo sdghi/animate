@@ -123,6 +123,47 @@ var humdinger = (function (exports) {
         };
     }
 
+    // @ts-nocheck
+    /**
+     * RAF equivalent to setInterval
+     * @param cb Callback function to run
+     * @param interval Duration between running callbacks
+     */
+    function requestInterval(cb, interval) {
+        let start = new Date().getTime();
+        let handle = new Object();
+        function animate() {
+            let current = new Date().getTime();
+            let dt = current - start;
+            if (dt >= interval) {
+                cb();
+                start = new Date().getTime();
+            }
+            handle.value = requestAnimationFrame(animate);
+        }
+        handle.value = requestAnimationFrame(animate);
+        return handle;
+    }
+    /**
+     * RAF equivalent to clearInterval
+     * @param handle The instance of the requestInterval
+     */
+    function clearRequestInterval(handle) {
+        window.cancelAnimationFrame
+            ? window.cancelAnimationFrame(handle.value)
+            : window.webkitCancelAnimationFrame
+                ? window.webkitCancelAnimationFrame(handle.value)
+                : window.webkitCancelRequestAnimationFrame
+                    ? window.webkitCancelRequestAnimationFrame(handle.value) /* Support for legacy API */
+                    : window.mozCancelRequestAnimationFrame
+                        ? window.mozCancelRequestAnimationFrame(handle.value)
+                        : window.oCancelRequestAnimationFrame
+                            ? window.oCancelRequestAnimationFrame(handle.value)
+                            : window.msCancelRequestAnimationFrame
+                                ? window.msCancelRequestAnimationFrame(handle.value)
+                                : clearInterval(handle);
+    }
+
     const defaultObserverOptions = {
         root: null,
         rootMargin: '0px',
@@ -389,14 +430,13 @@ var humdinger = (function (exports) {
             this.timer;
         }
         initTimer() {
-            this.timer = setInterval(() => {
-                console.log(this.options);
+            this.timer = requestInterval(() => {
                 this.options.timerFn();
             }, this.options.timer);
         }
         resetTimer(cb) {
             if (this.timer) {
-                clearInterval(this.timer);
+                clearRequestInterval(this.timer);
                 this.initTimer();
             }
             else {
@@ -453,6 +493,7 @@ var humdinger = (function (exports) {
     exports.Watcher = Watcher;
     exports.animateHeightAuto = animateHeightAuto;
     exports.animateLayout = animateLayout;
+    exports.clearRequestInterval = clearRequestInterval;
     exports.crossfade = crossfade;
     exports.defaultOptions = defaultOptions;
     exports.flip = flip;
@@ -461,6 +502,7 @@ var humdinger = (function (exports) {
     exports.loop = loop;
     exports.math = math;
     exports.mount = mount;
+    exports.requestInterval = requestInterval;
     exports.runFLIP = runFLIP;
     exports.screen = screen;
     exports.toggleMounting = toggleMounting;
