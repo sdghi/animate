@@ -490,25 +490,37 @@ var humdinger = (function (exports) {
     }
 
     class Sketch {
-        constructor(canvas, width, height) {
+        constructor(canvas, canvasOptions) {
             this.canvas = canvas;
-            this.width = width;
-            this.height = height;
+            this.width = canvasOptions.width;
+            this.height = canvasOptions.height;
+            this.trackMouse = canvasOptions.trackMouse;
             this.timestamp = 0;
             this.ctx = this.canvas.getContext("2d");
             this.draw = () => { };
+            this.canvasData = {};
         }
         init() {
             this.canvas.width = this.width * devicePixelRatio;
             this.canvas.height = this.height * devicePixelRatio;
             this.canvas.style.setProperty("width", `${this.width}px`);
             this.canvas.style.setProperty("height", `${this.height}px`);
+            if (this.trackMouse) {
+                this.setMousePosition();
+            }
             requestAnimationFrame((t) => this.render(t));
+        }
+        setMousePosition() {
+            //@ts-ignore
+            this.canvas.addEventListener("mousemove", (e) => {
+                this.canvasData.mouseX = e.clientX;
+                this.canvasData.mouseY = e.clientY;
+            });
         }
         render(ts) {
             ts /= 1000;
             this.timestamp = ts;
-            this.draw(ts, this.ctx);
+            this.draw(ts, this.ctx, this.canvasData);
             requestAnimationFrame((t) => this.render(t));
         }
     }

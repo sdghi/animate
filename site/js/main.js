@@ -3,15 +3,16 @@ const { Watcher, watchHeightChange, Gallery, Sketch } = humdinger;
 // Home Hero
 const homeHeroCanvas = document.querySelector(".home__hero__canvas");
 
-const homeSketch = new Sketch(
-  homeHeroCanvas,
-  window.innerWidth,
-  window.innerHeight
-);
+const homeSketch = new Sketch(homeHeroCanvas, {
+  width: window.innerWidth,
+  height: window.innerHeight,
+  trackMouse: true,
+});
 
 homeSketch.init();
 
-homeSketch.draw = (ts, ctx) => {
+homeSketch.draw = (ts, ctx, data) => {
+  console.log(data);
   // Lines
   ctx.lineWidth = 1;
   ctx.strokeStyle = "brown";
