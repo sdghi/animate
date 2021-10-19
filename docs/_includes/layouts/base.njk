@@ -19,7 +19,9 @@
     </style>
   </head>
   <body>
-    {% include "partials/header.njk" %}
+    {% if showHeader %}
+      {% include "partials/header.njk" %}
+    {% endif %}
 
     <main>
       {% block content %}{% endblock %}
