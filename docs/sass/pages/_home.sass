@@ -2,6 +2,8 @@
 @use '../mixins/container'
 @use '../mixins/layout'
 @use '../mixins/type'
+@use '../mixins/breakpoint'
+@use '../mixins/util'
 
 .home__hero
   +container.default
@@ -29,6 +31,7 @@
 .home__features
   +container.default
 
+// Scroll
 .home__scroll
   +container.default
   display: flex
@@ -57,6 +60,7 @@
     transition: transform 0.5s var(--ease-out-cubic), opacity 0.7s linear
     transition-delay: 0.5s
 
+// Dropdown
 .home__dropdown
   +container.small
 
@@ -69,3 +73,45 @@
 
 .home__dropdown__items__item__body
   +spacing.top(0.5)
+
+// Gallery
+.home__gallery
+  +container.small
+
+.home__gallery__items
+  display: flex
+  width: 100%
+  overflow-x: scroll 
+  scroll-behavior: smooth
+  scroll-snap-type: x mandatory
+  &::-webkit-scrollbar 
+    display: none
+
+.home__gallery__items__item
+  flex: 0 0 100%
+  scroll-snap-align: start
+  scroll-snap-stop: normal
+
+.home__gallery__items__item__figure__image
+  height: 500px
+  width: 100%
+  object-fit: cover
+
+.home__gallery__nav
+  +spacing.top(3)
+  display: flex
+  gap: spacing.level(1)
+
+.home__gallery__nav__button
+  border: 2px solid var(--color-dark-yellow)
+  background: transparent
+  height: 20px 
+  width: 20px
+  padding: 0
+  border-radius: 50%
+  &:hover,
+  &[data-current="true"]
+    background: var(--color-dark-yellow)
+
+.home__gallery__nav__button span
+  +util.visually-hidden

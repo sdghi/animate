@@ -29,11 +29,12 @@
     </section>
 
     {% include 'partials/spacer.njk' %}
+    {% include 'partials/spacer.njk' %}
 
     <section class="home__dropdown">
       <div class="home__dropdown__items">
         {% for dropdown in home.dropdown.items %}
-          <details class="home__dropdown__items__item">
+          <details class="home__dropdown__items__item" {% if loop.index0 == 0%}open{% endif %}>
             <summary class="home__dropdown__items__item__toggle">{{dropdown.title}}</summary>
             <p class="home__dropdown__items__item__body">{{dropdown.body}}</p>
           </details>
@@ -42,6 +43,28 @@
     </section>
 
     {% include 'partials/spacer.njk' %}
+    {% include 'partials/spacer.njk' %}
 
+    <section class="home__gallery">
+      <div class="home__gallery__items">
+        {% for item in home.gallery.items %}      
+          <div class="home__gallery__items__item">
+            <figure class="home__gallery__items__item__figure" data-current="{{loop.index0 == 0}}">
+              <img class="home__gallery__items__item__figure__image" src="{{item.image.url}}" alt="{{item.image.alt}}"> 
+              <figcaption class="home__gallery__items__item__figure__caption">{{item.caption}}</figcaption>
+            </figure>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="home__gallery__nav">
+        {% for item in home.gallery.items %}      
+          <button class="home__gallery__nav__button" data-value="{{loop.index0}}" data-current="{{loop.index0 == 0}}" tabindex="0"><span class="visually-hidden">View slide {{loop.index0}}</span></button>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include 'partials/spacer.njk' %}
+    {% include 'partials/spacer.njk' %}
   </article>
 {% endblock %}

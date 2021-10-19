@@ -5,10 +5,12 @@ hero:
     - label: View API
       url: /api
     - label: Explore Features
-      url: '#features'
+      url: "#features"
+
 scroll:
   title: Scroll
   body: Animate elements using scroll-based hooks
+
 dropdown:
   title: Animate Height Auto
   items:
@@ -18,3 +20,18 @@ dropdown:
       body: Fusce id turpis libero. In finibus leo non scelerisque efficitur. Nam ullamcorper lorem volutpat sagittis semper. Praesent lobortis at mi ut volutpat. Phasellus rutrum tristique ultricies. Suspendisse nec fermentum lacus. Duis aliquet enim sit amet leo molestie egestas. In finibus, tellus in suscipit venenatis, augue est varius neque, quis pulvinar ipsum metus id elit. In hac habitasse platea dictumst. Nullam ornare a quam non facilisis. Phasellus sit amet porta lectus. Aliquam tempor ex id risus vulputate eleifend. Mauris euismod augue at nibh pellentesque volutpat. Sed tincidunt est ac justo facilisis, vitae sodales dui luctus. Donec vitae risus aliquam nunc condimentum convallis non sit amet massa.
     - title: Item 3
       body: Integer at suscipit nibh, tincidunt consectetur tortor. Aliquam congue nunc sit amet erat rutrum, eget pulvinar lectus semper. Quisque scelerisque mauris id turpis blandit mollis. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum in consectetur nisl. Pellentesque rhoncus elit quis metus blandit, nec cursus nisi fringilla. In nec hendrerit elit. Sed quis mi eget mauris iaculis placerat quis vel ante. Mauris efficitur ante tristique lectus fringilla, eu scelerisque ligula consequat. Proin sed auctor ex.
+
+gallery:
+  items:
+    - image:
+        url: https://images.unsplash.com/photo-1634351583902-0216460f6413?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80
+        alt: Image 1
+      caption: Simplified logic for creating gallery components
+    - image:
+        url: https://images.unsplash.com/photo-1634482900402-576b9dcdbfa5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1336&q=80
+        alt: Image 2
+      caption: Full control over how you want to animate
+    - image:
+        url: https://images.unsplash.com/photo-1634572542630-35d1e2aa12fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80
+        alt: Image 3
+      caption: Built-in timer using Request Animation Frame
